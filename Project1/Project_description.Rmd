@@ -1,0 +1,23 @@
+---
+title: "Project 1: Genome Scale algorithms"
+author: "Maria, Mateo and Jacob"
+date: "2/20/2018"
+output:
+  md_document:
+  variant: markdown_github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Programme description
+
+bla
+## Evaluation of correctness 
+
+bla
+## Running time experiment
+bla
+
+
