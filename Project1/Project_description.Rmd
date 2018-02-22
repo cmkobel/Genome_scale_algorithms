@@ -15,7 +15,7 @@ library(tidyverse)
 ```
 
 
-```{r Setup, echo=FALSE}
+```{r Setup, warning=FALSE}
 
 # Import Naive
 df_Naive = read.csv("Test ExactSubstring_Naive.csv", header = FALSE)
@@ -78,7 +78,7 @@ python search-kmp.py ancient-mariner.txt Albatross
 
 ## Runtime - Naive
 
-The implementation of the naive algorithm runs in O( n * m ) time.
+The implementation of the naive algorithm runs in O( n * m ) time. With best case input at 0 occurrences of pattern in the text, and worst case is constant matching to keep the inner loop active ( m = n^0.5 ).
 
 The following plot shows the runtime / regression of the Y axis and regression on X axis. Where the regression is: Time ~ n + m.
 It clearly shows that the runtime is more than linear.
@@ -125,7 +125,7 @@ ggplot(  ) +
 
 ## Runtime - KMP
 
-The implementation of the KMP algorithm runs in O( n + m ) time.
+The implementation of the KMP algorithm runs in O( n + m ) time. The best case is a pattern with a simple failure function (all pointing to the base case), where the worst case keeps the inner loops busy by jumping with failures.
 The following plot shows the runtime / regression of the Y axis and regression on X axis. Where the regression is: Time ~ n + m.
 This plot flatlines around y = 1, with random spikes of longer runtime which can be explained by background resource usage.
 
