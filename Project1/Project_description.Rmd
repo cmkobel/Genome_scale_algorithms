@@ -37,14 +37,14 @@ df_KMP$Function = factor(x = df_KMP$Function)
 
 ## Program description
 
-The programs are implemented in Python, we had no unsovled issues implementing the algorithms.
+The programs are implemented in Python, we had no unsolved issues implementing the algorithms.
 Execution of the program on commandline takes the form:
   python search-naive.py [text-filename] [str-pattern]
   python search-kmp.py [text-filename] [str-pattern]
 and the output is directly to the console.
 
 ## Test of search-naive
-
+We used the data provided for testing which outputs the following results:
 python search-naive.py banana.txt ana
 2 4
 
@@ -58,7 +58,6 @@ python search-naive.py ancient-mariner.txt Albatross
 2876 2991 3272 3443 5586 6899 14180 19139 23729
 
 ## Test of search-kmp
-
 python search-kmp.py banana.txt ana
 2 4
 
@@ -182,3 +181,63 @@ an_kmp$`Pr(>F)`
 
 ```
 
+## Measuring time in a different way
+```{r}
+library(dplyr)
+library(ggpubr)
+setwd('/Users/PM/Dropbox/Genome_scale_algorithms/Genome_scale_algorithms/Project1')
+df_Naive = read.csv("Test ExactSubstring_Naive.csv", header = FALSE)
+df_KMP = read.csv("Test ExactSubstring_KMP.csv", header = FALSE)
+colnames(df_Naive) = c("Function", "Time", "n", "m", "z", "RunName")
+colnames(df_KMP) = c("Function", "Time", "n", "m", "z", "RunName")
+
+dat_kmp = df_KMP 
+dat_naive = df_Naive
+ploting <- function(dat_naive, dat_kmp){
+      dat_naive <- dat_naive %>%
+            mutate(type = "Naive")
+    
+      dat_kmp <- dat_kmp %>%
+            mutate(type = "KMP")
+      
+      all <- rbind(dat_kmp, dat_naive)
+      colnames(all) = c("Function", "Time", "n", "m", "z", "RunName", "Type")
+      
+      constant_n <- all %>%
+              filter(n == 10000)
+      
+      constant_m <- all %>%
+              filter(m == 10)
+      return(list(constant_n, constant_m))
+} 
+
+fig <- ploting(df_Naive, df_KMP)
+
+      #a <- qplot(y = Constant_n$Time/Constant_n$m, x = Constant_n$m) + ylim(0,0.001)
+      #b <- qplot(y = Constant_m$Time/Constant_m$n, x = Constant_m$n) + ylim(0,2.5*10^-6)
+
+      a <- ggplot(data = fig[[1]]) + 
+        geom_point(mapping = aes(y = Time/m, x = m, color = Type)) + theme_bw() +  scale_y_log10() 
+      
+      b <- ggplot(data = fig[[2]]) + theme_bw() +
+        geom_point(mapping = aes(y = Time/n, x = n, color = Type))  + scale_y_log10() 
+      c <- ggplot(data = fig[[2]]) +
+        geom_point(mapping = aes(y = Time*10^4, x = n, color = Type)) + geom_smooth(method = "lm", mapping = aes(y = Time*10^4, x = n)) + theme_bw()
+      
+      d <- ggplot(data = fig[[1]]) + 
+        geom_point(mapping = aes(y = Time/m, x = m, color = Type)) + theme_bw() +  scale_y_log10() 
+      
+      e <- ggplot(data = fig[[2]]) + theme_bw() +
+        geom_point(mapping = aes(y = Time/n, x = n, color = Type))  + scale_y_log10() 
+      
+      f <- ggplot(data = fig[[2]]) +
+      geom_point(mapping = aes(y = Time*10^4, x = n, color = Type)) + geom_smooth(method = "lm",mapping = aes(y = Time*10^4, x = n)) + theme_bw()
+
+ggarrange(a, b, c, d, e, f,
+      labels = c('A', 'B', 'C', 'D', 'E', 'F'),
+      ncol = 2, nrow = 3)
+
+
+
+
+```
