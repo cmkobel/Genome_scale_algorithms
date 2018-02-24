@@ -235,7 +235,7 @@ fig <- ploting(df_Naive, df_KMP)
 
 ggarrange(a, b, c, d, e, f,
       labels = c('A', 'B', 'C', 'D', 'E', 'F'),
-      ncol = 2, nrow = 3)
+      ncol = 3, nrow = 2)
 
 
 
