@@ -85,12 +85,13 @@ It clearly shows that the runtime is more than linear.
 ```{r Naive1, warning=FALSE}
 
 fit_naive = lm( data = df_Naive, formula = Time ~ m + n)
+fit_naive
 
 ggplot( data = df_Naive ) +
-  geom_line( 
+  geom_point( 
     aes( 
-      y = Time / ( m * fit_naive$coefficients[2] + fit_naive$coefficients[3] * n ), 
-      x = m * fit_naive$coefficients[2] + fit_naive$coefficients[3] * n + fit_naive$coefficients[1] 
+      y = Time, 
+      x = m * fit_naive$coefficients[2] + fit_naive$coefficients[3] * n
     ), 
     color = "#000000", alpha = 0.9 
   ) 
@@ -108,7 +109,9 @@ inc = fit_naive_poly$coefficients[1]
 c_n = fit_naive_poly$coefficients[2]
 c_m = fit_naive_poly$coefficients[3]
 c_nm = fit_naive_poly$coefficients[4]
+
 Interaction_Regression = inc + c_n * df_Naive$n + c_m * df_Naive$m + df_Naive$n * df_Naive$m * c_nm
+Interaction_Regression = 0 + c_n * df_Naive$n + 0 * df_Naive$m + df_Naive$n * df_Naive$m * c_nm
 Interaction_Regression = 0 + c_n * df_Naive$n + 0 * df_Naive$m + df_Naive$n * df_Naive$m * c_nm
 
 ggplot(  ) +
@@ -117,7 +120,7 @@ ggplot(  ) +
       y = df_Naive$Time / Interaction_Regression, 
       x = Interaction_Regression
     )
-  ) + xlim(0.001, 0.03) + ylim(0, 8)
+  ) + ylim(0, 8)
 
 
 ```
@@ -148,12 +151,16 @@ ggplot(  ) +
 
 ```
 
-## Testdata and Number of occurrences
+## Testdata 
 
 Tests of runtime was done the same way for both algorithms.
-First varying m and keeping n the same.
-Second keepoing m the same and varying n.
-Third by varying both n and m together.
+  - varying m and keeping n the same.
+  - keepoing m the same and varying n.
+  - varying both n and m together.
+
+This was done with random generated strings (text and pattern), and another run with best case (text = "aaa...", pattern = "bbb...") and worst case (text = "aaa...", pattern = "aaa...").
+
+## Number of occurrences (z)
 
 The number of occurrences of the pattern in the string has no significant impact on the naive implementation.
 Here is the p-value of an ANOVA of the addition to the regression.
