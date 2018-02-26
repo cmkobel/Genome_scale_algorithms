@@ -182,11 +182,12 @@ an_kmp$`Pr(>F)`
 ```
 
 ## Measuring time in a different way
+We have tested two different scanarios; the best case and the worst case (bc,wc). For Naive algorithm we have implemented the worst case as sequence with same repeated characters compared with patterns that that are roughly equal size as n and also that sequence **S** has n number of A's and the pattern **P** has (m-1) number of A's followed by a single B. The best case scenario would be matching pattern **P** with sequence **S** which has no occurances in **S**.
 ```{r}
 library(dplyr)
 library(ggpubr)
-df_Naive = read.csv("Test ExactSubstring_Naive.csv", header = FALSE)
-df_KMP = read.csv("Test ExactSubstring_KMP.csv", header = FALSE)
+df_Naive = read.csv("Test ExactSubstring_Naive_bc-wc.csv", header = FALSE)
+df_KMP = read.csv("Test ExactSubstring_KMP_bc-wc.csv", header = FALSE)
 colnames(df_Naive) = c("Function", "Time", "n", "m", "z", "RunName")
 colnames(df_KMP) = c("Function", "Time", "n", "m", "z", "RunName")
 
@@ -194,20 +195,25 @@ dat_kmp = df_KMP
 dat_naive = df_Naive
 ploting <- function(dat_naive, dat_kmp){
       dat_naive <- dat_naive %>%
+          group_by(n, m, RunName) %>%
+            mutate(median_time = median(Time)) %>%
             mutate(type = "Naive")
     
       dat_kmp <- dat_kmp %>%
+            group_by(n, m,RunName) %>%
+            mutate(median_time = median(Time)) %>%
             mutate(type = "KMP")
       
       all <- rbind(dat_kmp, dat_naive)
-      colnames(all) = c("Function", "Time", "n", "m", "z", "RunName", "Type")
+      colnames(all) = c("Function", "Time", "n", "m", "z", "RunName","median_time","Type")
       
       constant_n <- all %>%
-              filter(n == 10000)
+              filter(n == 5000)
       
       constant_m <- all %>%
               filter(m == 10)
-      return(list(constant_n, constant_m))
+      
+      return(list(constant_n, constant_m, all))
 } 
 
 fig <- ploting(df_Naive, df_KMP)
@@ -216,26 +222,71 @@ fig <- ploting(df_Naive, df_KMP)
       #b <- qplot(y = Constant_m$Time/Constant_m$n, x = Constant_m$n) + ylim(0,2.5*10^-6)
 
       constant_n_1 <- ggplot(data = fig[[1]]) + 
-        geom_point(mapping = aes(y = Time/m, x = m, color = Type)) + theme_bw() +  scale_y_log10() 
+        geom_point(mapping = aes(y = Time/m, x = m, color = Type, shape = RunName)) + theme_bw() +  ylim(0,0.0001)
+      
       constant_m_n_linear <- ggplot(data = fig[[2]]) + theme_bw() +
-        geom_point(mapping = aes(y = Time/n, x = n, color = Type))+  scale_y_log10() 
-      constant_m_non_linear <- ggplot(data = fig[[2]]) + theme_bw() +
-        geom_point(mapping = aes(y = Time/n^2, x = n, color = Type))+  scale_y_log10() 
-      constant_m_linear <- ggplot(data = fig[[2]]) +
-        geom_point(mapping = aes(y = Time*10^4, x = n, color = Type)) + 
-        geom_smooth(method = "lm", mapping = aes(y = Time*10^4, x = n, color = Type)) + theme_bw() 
+        geom_point(mapping = aes(y = Time/n, x = n, color = Type,shape = RunName))+  ylim(0, 1e-6)
       
       
-      # constant_n_2 <- ggplot(data = fig[[1]]) + 
-      #   geom_point(mapping = aes(y = Time/m, x = m, color = Type)) + theme_bw() +  scale_y_log10() 
-      # constant_m_2<- ggplot(data = fig[[2]]) + theme_bw() +
-      #   geom_point(mapping = aes(y = Time/n, x = n, color = Type))  + scale_y_log10() 
-      # constant_n_linear <- ggplot(data = fig[[2]]) +
-      # geom_point(mapping = aes(y = Time*10^4, x = n, color = Type)) + geom_smooth(method = "lm",mapping = aes(y = Time*10^4, x = n)) + theme_bw()
+    kmp<- fig[[2]] %>%
+      filter(Type == "KMP")
+    
+    naive<- fig[[2]] %>%
+      filter(Type == "Naive")
+    
+    constant_m_kmp <- ggplot(data = kmp) +
+        geom_point(mapping = aes(y = Time*10^4, x = n, color = RunName)) + 
+        geom_smooth(method = "lm", mapping = aes(y = Time*10^4, x = n)) + theme_bw() 
+    
+    constant_m_naive <- ggplot(data = naive) +
+        geom_point(mapping = aes(y = Time*10^4, x = n, color= RunName)) + 
+        geom_smooth(method = "lm", mapping = aes(y = Time*10^4, x = n)) + theme_bw() 
+     
+    all_naive <- fig[[3]] %>%
+      filter(Type == "Naive")
+    all_KMP <- fig[[3]] %>%
+      filter(Type == "KMP")
+    
+    all_mn_kmp <- ggplot(data = all_KMP) +
+        geom_point(mapping = aes(y = median_time/(m*n), x = m, color = RunName))  + theme_bw()  + ylim(0, 5e-7)
+    all_mn_naive <- ggplot(data = all_naive) +
+        geom_point(mapping = aes(y = median_time/(m*n), x = m, color = RunName))  + theme_bw() + ylim(0,5e-7)
+    
+    all_m_plus_n_kmp <- ggplot(data = all_KMP) +
+        geom_point(mapping = aes(y = median_time/(m+n), x = m, color = RunName))  + theme_bw()  
+    all_m_plus_n_naive <- ggplot(data = all_naive) +
+        geom_point(mapping = aes(y = median_time/(m+n), x = m, color = RunName))  + theme_bw()
+    
 
-ggarrange(constant_n_1, constant_m_n_linear,constant_m_non_linear,constant_m_linear,
-      labels = c('Constant n - Time/m', 'Constant m: Time/n','Constant m: Time/n^2', 'Constant n:'),
-      ncol = 2, nrow = 2)
+# ggarrange(constant_m_kmp, constant_m_naive, all_mn_kmp, all_mn_naive,all_m_plus_n_kmp,all_m_plus_n_naive,
+#       labels = c('Constant m: KMP ', 'Constant m: Naive', 'KMP: Time/n*m:' ,'Naive: Time/m*n', 'KMP: Time/n+m', 'Naive: Time/n+m'),
+#       ncol = 3, nrow = 3)
+
+```
+
+First we keep **m** constant and vary the **n** showing that slope is much more steeper when using Naive algorithm indicating that time is not linear. In KMP the slope does not change taking into account both, worst case and best case, which indicates linear time.
+```{r}
+ggarrange(constant_m_kmp, constant_m_naive, 
+      labels = c('Constant m: KMP ', 'Constant m: Naive'),
+      ncol = 2, nrow =1)
+```
+
+When we plot the time measurments of KMP algorithm by dividing **(n*m)** we can see that points will tend to get closer to the 0, which indicates wrong scale. Since, KMP runs in m+n time we can not prove much using this plot. On the other hand, Naive algorithm confirms **n * m** time consumption since it tends to become constant when **m** is above 200.
+
+```{r}
+ggarrange(all_mn_kmp, all_mn_naive, 
+      labels = c('KMP: Time/n*m', 'Naive: Time/n*m'),
+      ncol = 2, nrow =1)
+```
+
+In this case, we want to prove that KMP runs in linear time and when you try to plot Naive algorithm on the scale n+m the running time does not reach a constant time. On KMP plot, we can also see a shift around m = 250 which could be explained background processing or allocation of resources.
+
+```{r}
+ggarrange(all_m_plus_n_kmp, all_m_plus_n_naive, 
+      labels = c('KMP: Time/n+m', 'Naive: Time/n+m'),
+      ncol = 2, nrow =1)
+```
+
 
 
 
