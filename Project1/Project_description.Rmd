@@ -190,7 +190,7 @@ an_kmp$`Pr(>F)`
 
 ## Measuring time in a different way
 We have tested two different scanarios; the best case and the worst case (bc,wc). For Naive algorithm we have implemented the worst case as sequence with same repeated characters compared with patterns that that are roughly equal size as n and also that sequence **S** has n number of A's and the pattern **P** has (m-1) number of A's followed by a single B. The best case scenario would be matching pattern **P** with sequence **S** which has no occurances in **S**.
-```{r}
+```{r, echo = F}
 library(dplyr)
 library(ggpubr)
 df_Naive = read.csv("Test ExactSubstring_Naive_bc-wc.csv", header = FALSE)

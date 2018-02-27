@@ -1,0 +1,16 @@
+---
+title: "Project 2: Genome Scale algorithms"
+author: "Maria, Mateo and Jacob"
+date: "2/20/2018"
+output:
+  pdf_document:
+  variant: markdown_github
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Project 2 - Suffix tree construction
+
+Instruction of the project: https://github.com/mailund/gsa-exercises/tree/master/Project02
+
