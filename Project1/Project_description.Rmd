@@ -11,14 +11,16 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
+library(dplyr)
+library(ggpubr)
 
 ```
 
 
-```{r Setup, warning=FALSE}
+```{r Setup, warning=FALSE, echo=FALSE}
 
 # Import Naive
-df_Naive = read.csv("Test ExactSubstring_Naive.csv", header = FALSE)
+df_Naive = read.csv("Test ExactSubstring_Naive_bc-wc.csv", header = FALSE)
 
 colnames(df_Naive) = c("Function", "Time", "n", "m", "z", "RunName")
 
@@ -26,7 +28,7 @@ df_Naive$RunName = factor(x = df_Naive$RunName)
 df_Naive$Function = factor(x = df_Naive$Function)
 
 # Import KMP
-df_KMP = read.csv("Test ExactSubstring_KMP.csv", header = FALSE)
+df_KMP = read.csv("Test ExactSubstring_KMP_bc-wc.csv", header = FALSE)
 
 colnames(df_KMP) = c("Function", "Time", "n", "m", "z", "RunName")
 
@@ -42,6 +44,15 @@ Execution of the program on commandline takes the form:
   python search-naive.py [text-filename] [str-pattern]
   python search-kmp.py [text-filename] [str-pattern]
 and the output is directly to the console.
+
+## Testdata 
+
+Tests of runtime was done the same way for both algorithms.
+  - varying m and keeping n the same.
+  - keepoing m the same and varying n.
+  - varying both n and m together.
+
+This was done with random generated strings (text and pattern), and another run with best case (text = "aaa...", pattern = "bbb...") and worst case (text = "aaa...", pattern = "aaa...").
 
 ## Test of search-naive
 We used the data provided for testing which outputs the following results:
@@ -70,7 +81,7 @@ python search-kmp.py walrus-and-carpenter.txt Walrus
 python search-kmp.py ancient-mariner.txt Albatross
 2876 2991 3272 3443 5586 6899 14180 19139 23729
 
-```{r Correctness1, warning=FALSE}
+```{r Correctness1, warning=FALSE, echo=FALSE}
 
 
 ```
@@ -82,43 +93,39 @@ The implementation of the naive algorithm runs in O( n * m ) time. With best cas
 The following plot shows the runtime / regression of the Y axis and regression on X axis. Where the regression is: Time ~ n + m.
 It clearly shows that the runtime is more than linear.
 
-```{r Naive1, warning=FALSE}
+```{r Naive1, warning=FALSE, echo=FALSE}
 
 fit_naive = lm( data = df_Naive, formula = Time ~ m + n)
-fit_naive
 
 ggplot( data = df_Naive ) +
   geom_point( 
     aes( 
       y = Time, 
-      x = m * fit_naive$coefficients[2] + fit_naive$coefficients[3] * n
-    ), 
-    color = "#000000", alpha = 0.9 
+      x = m * fit_naive$coefficients[2] - fit_naive$coefficients[3] * n
+    )
   ) 
 
 ```
 
 The following plot shows the runtime / regression of the Y axis and regression on X axis. Where the regression is: Time ~ n * m.
-This plot flatlines around y = 1, with random spikes of longer runtime which can be explained by background resource usage.
+This plot flatlines above (worst case) and below (best case) of y = 1, with random spikes of longer runtime which can be explained by background resource usage.
 
-```{r Naive2, warning=FALSE}
+```{r Naive2, warning=FALSE, echo=FALSE}
 
 fit_naive_poly = glm( data = df_Naive, formula = Time ~ n * m )
-fit_naive_poly
 inc = fit_naive_poly$coefficients[1]
-c_n = fit_naive_poly$coefficients[2]
-c_m = fit_naive_poly$coefficients[3]
-c_nm = fit_naive_poly$coefficients[4]
+c_n = fit_naive_poly$coefficients["n"]
+c_m = fit_naive_poly$coefficients["m"]
+c_nm = fit_naive_poly$coefficients["n:m"]
 
 Interaction_Regression = inc + c_n * df_Naive$n + c_m * df_Naive$m + df_Naive$n * df_Naive$m * c_nm
-Interaction_Regression = 0 + c_n * df_Naive$n + 0 * df_Naive$m + df_Naive$n * df_Naive$m * c_nm
-Interaction_Regression = 0 + c_n * df_Naive$n + 0 * df_Naive$m + df_Naive$n * df_Naive$m * c_nm
 
-ggplot(  ) +
-  geom_line( 
+ggplot( data = df_Naive  ) +
+  geom_point( 
     aes( 
-      y = df_Naive$Time / Interaction_Regression, 
-      x = Interaction_Regression
+      y = Time / Interaction_Regression, 
+      x = Interaction_Regression, 
+      color = RunName
     )
   ) + ylim(0, 8)
 
@@ -129,141 +136,158 @@ ggplot(  ) +
 
 The implementation of the KMP algorithm runs in O( n + m ) time. The best case is a pattern with a simple failure function (all pointing to the base case), where the worst case keeps the inner loops busy by jumping with failures.
 The following plot shows the runtime / regression of the Y axis and regression on X axis. Where the regression is: Time ~ n + m.
-This plot flatlines around y = 1, with random spikes of longer runtime which can be explained by background resource usage.
+This plot flatlines around y = 1 with a clear separation of worst and best case, there is however a lot of noise which is hard to explain simply from noise due to background resource usage.
 
 
-```{r KMP,warning=FALSE}
+```{r KMP,warning=FALSE, echo=FALSE}
 
 fit_kmp = glm( data = df_KMP, formula = Time ~ n + m )
 inc = fit_kmp$coefficients[1]
-c_m = fit_kmp$coefficients[3]
-c_n = fit_kmp$coefficients[2]
-kmp_Regression = inc + c_n * df_KMP$n + c_m * df_KMP$m
-kmp_Regression = 0 + c_n * df_KMP$n + c_m * df_KMP$m
+c_m = fit_kmp$coefficients["m"]
+c_n = fit_kmp$coefficients["n"]
 
-ggplot(  ) +
-  geom_line( 
+df_KMP$nm_Regression =  c_n * df_KMP$n + c_m * df_KMP$m
+
+ggplot( data = df_KMP ) +
+  geom_point( 
     aes( 
-      y = df_KMP$Time / kmp_Regression, 
-      x = kmp_Regression
+      y = Time / nm_Regression, 
+      x = nm_Regression,
+      color = RunName
     )
-  ) + xlim(0.001, 0.0085) + ylim(0.5, 5)
+  ) + ylim(0.5, 4)
 
 ```
-
-## Testdata 
-
-Tests of runtime was done the same way for both algorithms.
-  - varying m and keeping n the same.
-  - keepoing m the same and varying n.
-  - varying both n and m together.
-
-This was done with random generated strings (text and pattern), and another run with best case (text = "aaa...", pattern = "bbb...") and worst case (text = "aaa...", pattern = "aaa...").
 
 ## Number of occurrences (z)
 
-The number of occurrences of the pattern in the string has no significant impact on the naive implementation.
-Here is the p-value of an ANOVA of the addition to the regression.
+The number of occurrences of the pattern in the string is only a disturbance to the runtime fit, throwing the regression completely off balance.
 
-```{r Anova-naive,warning=FALSE}
+```{r Anova-naive,warning=FALSE, echo=FALSE}
 
-fit_naive = lm( data = df_Naive, formula = Time ~ n + m )
-fit_naive_z = lm( data = df_Naive, formula = Time ~ n + m + z )
+fit_naive_z = glm( data = df_Naive, formula = Time ~ n * m + z )
+inc = fit_naive_z$coefficients[1]
+c_n = fit_naive_z$coefficients["n"]
+c_m = fit_naive_z$coefficients["m"]
+c_z = fit_naive_z$coefficients["z"]
+c_nm = fit_naive_z$coefficients["n:m"]
 
-an_naive = anova(fit_naive, fit_naive_z)
-an_naive$`Pr(>F)`
+df_Naive$nmz_Regression = inc + c_n * df_Naive$n + c_m * df_Naive$m + df_Naive$n * df_Naive$m * c_nm + df_Naive$z * c_z
+
+ggplot( data = df_Naive  ) +
+  geom_point( 
+    aes( 
+      y = Time / nmz_Regression, 
+      x = nmz_Regression, 
+      color = RunName
+    )
+  ) + ylim(0, 8)
 
 ```
 
-The number of occurrences of the pattern in the string has no significant impact on the KMP implementation.
-Here is the p-value of an ANOVA of the addition to the regression.
+It is more difficult to decide with the KMP implementation. But the addition of z seems to reduce the noise, and an anova shows a clear improvement (F = 15585, p < 2.2e-16), concluding that the KMP implementation is sensitive to # of occurences of the pattern.
+The two colors of the graph separates z above (red) and below (blue) 100. 
 
-```{r Anova-KMP,warning=FALSE}
+```{r Anova-KMP,warning=FALSE, echo=FALSE}
 
-fit_kmp = lm( data = df_KMP, formula = Time ~ n + m )
-fit_kmp_z = lm( data = df_KMP, formula = Time ~ n + m + z )
+fit_KMP_nm = lm( data = df_KMP, formula = Time ~ n * m )
+fit_KMP_z = lm( data = df_KMP, formula = Time ~ n * m + z )
+#anova(fit_KMP_nm, fit_KMP_z)
 
-an_kmp = anova(fit_kmp, fit_kmp_z)
-an_kmp$`Pr(>F)`
+inc = fit_KMP_z$coefficients[1]
+c_n = fit_KMP_z$coefficients["n"]
+c_m = fit_KMP_z$coefficients["m"]
+c_z = fit_KMP_z$coefficients["z"]
+c_nm = fit_KMP_z$coefficients["n:m"]
+
+df_KMP$nmz_Regression = inc + c_n * df_KMP$n + c_m * df_KMP$m + df_KMP$n * df_KMP$m * c_nm + df_KMP$z * c_z
+
+ggplot( data = df_KMP  ) +
+  geom_point( 
+    data = df_KMP[df_KMP$z > 100,],
+    aes( 
+      y = Time,
+      x = nm_Regression
+    ), color = "#ff505f", alpha = 0.5
+  ) + 
+  geom_point( 
+    data = df_KMP[df_KMP$z <= 100,],
+    aes( 
+      y = Time,
+      x = nm_Regression
+    ), color = "#5050ff", alpha = 0.5
+  ) + ylim(0, 0.06)
+
 
 ```
 
 ## Measuring time in a different way
 We have tested two different scanarios; the best case and the worst case (bc,wc). For Naive algorithm we have implemented the worst case as sequence with same repeated characters compared with patterns that that are roughly equal size as n and also that sequence **S** has n number of A's and the pattern **P** has (m-1) number of A's followed by a single B. The best case scenario would be matching pattern **P** with sequence **S** which has no occurances in **S**.
-```{r}
-library(dplyr)
-library(ggpubr)
+```{r LoadData, echo=FALSE}
+
 df_Naive = read.csv("Test ExactSubstring_Naive_bc-wc.csv", header = FALSE)
 df_KMP = read.csv("Test ExactSubstring_KMP_bc-wc.csv", header = FALSE)
+
 colnames(df_Naive) = c("Function", "Time", "n", "m", "z", "RunName")
 colnames(df_KMP) = c("Function", "Time", "n", "m", "z", "RunName")
 
-dat_kmp = df_KMP 
-dat_naive = df_Naive
-ploting <- function(dat_naive, dat_kmp){
-      dat_naive <- dat_naive %>%
-          group_by(n, m, RunName) %>%
-            mutate(median_time = median(Time)) %>%
-            mutate(type = "Naive")
-    
-      dat_kmp <- dat_kmp %>%
-            group_by(n, m,RunName) %>%
-            mutate(median_time = median(Time)) %>%
-            mutate(type = "KMP")
-      
-      all <- rbind(dat_kmp, dat_naive)
-      colnames(all) = c("Function", "Time", "n", "m", "z", "RunName","median_time","Type")
-      
-      constant_n <- all %>%
-              filter(n == 5000)
-      
-      constant_m <- all %>%
-              filter(m == 10)
-      
-      return(list(constant_n, constant_m, all))
-} 
+df_Naive$type = "Naive"
+df_KMP$type = "KMP"
+df_all = rbind(df_Naive, df_KMP)
 
-fig <- ploting(df_Naive, df_KMP)
+df_all <- df_all %>%
+  group_by(type, n, m, RunName) %>%
+  mutate(median_time = median(Time))
 
-      #a <- qplot(y = Constant_n$Time/Constant_n$m, x = Constant_n$m) + ylim(0,0.001)
-      #b <- qplot(y = Constant_m$Time/Constant_m$n, x = Constant_m$n) + ylim(0,2.5*10^-6)
+constant_n <- df_all %>% filter(n == 5000)
+constant_m <- df_all %>% filter(m == 10)
 
-      constant_n_1 <- ggplot(data = fig[[1]]) + 
-        geom_point(mapping = aes(y = Time/m, x = m, color = Type, shape = RunName)) + theme_bw() +  ylim(0,0.0001)
-      
-      constant_m_n_linear <- ggplot(data = fig[[2]]) + theme_bw() +
-        geom_point(mapping = aes(y = Time/n, x = n, color = Type,shape = RunName))+  ylim(0, 1e-6)
-      
-      
-    kmp<- fig[[2]] %>%
-      filter(Type == "KMP")
-    
-    naive<- fig[[2]] %>%
-      filter(Type == "Naive")
-    
-    constant_m_kmp <- ggplot(data = kmp) +
-        geom_point(mapping = aes(y = Time*10^4, x = n, color = RunName)) + 
-        geom_smooth(method = "lm", mapping = aes(y = Time*10^4, x = n)) + theme_bw() 
-    
-    constant_m_naive <- ggplot(data = naive) +
-        geom_point(mapping = aes(y = Time*10^4, x = n, color= RunName)) + 
-        geom_smooth(method = "lm", mapping = aes(y = Time*10^4, x = n)) + theme_bw() 
-     
-    all_naive <- fig[[3]] %>%
-      filter(Type == "Naive")
-    all_KMP <- fig[[3]] %>%
-      filter(Type == "KMP")
-    
-    all_mn_kmp <- ggplot(data = all_KMP) +
-        geom_point(mapping = aes(y = median_time/(m*n), x = m, color = RunName))  + theme_bw()  + ylim(0, 5e-7)
-    all_mn_naive <- ggplot(data = all_naive) +
-        geom_point(mapping = aes(y = median_time/(m*n), x = m, color = RunName))  + theme_bw() + ylim(0,5e-7)
-    
-    all_m_plus_n_kmp <- ggplot(data = all_KMP) +
-        geom_point(mapping = aes(y = median_time/(m+n), x = m, color = RunName))  + theme_bw()  
-    all_m_plus_n_naive <- ggplot(data = all_naive) +
-        geom_point(mapping = aes(y = median_time/(m+n), x = m, color = RunName))  + theme_bw()
-    
+fig <- list(constant_n, constant_m, df_all)
+
+```
+
+```{r Plotting, echo=FALSE}
+
+
+#a <- qplot(y = Constant_n$Time/Constant_n$m, x = Constant_n$m) + ylim(0,0.001)
+#b <- qplot(y = Constant_m$Time/Constant_m$n, x = Constant_m$n) + ylim(0,2.5*10^-6)
+
+constant_n_1 <- ggplot(data = fig[[1]]) + 
+  geom_point(mapping = aes(y = Time/m, x = m, color = Type, shape = RunName)) + theme_bw() +  ylim(0,0.0001)
+
+constant_m_n_linear <- ggplot(data = fig[[2]]) + theme_bw() +
+  geom_point(mapping = aes(y = Time/n, x = n, color = Type,shape = RunName))+  ylim(0, 1e-6)
+
+
+kmp<- fig[[2]] %>%
+  filter(type == "KMP")
+
+naive<- fig[[2]] %>%
+  filter(type == "Naive")
+
+constant_m_kmp <- ggplot(data = kmp) +
+    geom_point(mapping = aes(y = Time*10^4, x = n, color = RunName)) + 
+    geom_smooth(method = "lm", mapping = aes(y = Time*10^4, x = n)) + theme_bw() 
+
+constant_m_naive <- ggplot(data = naive) +
+    geom_point(mapping = aes(y = Time*10^4, x = n, color= RunName)) + 
+    geom_smooth(method = "lm", mapping = aes(y = Time*10^4, x = n)) + theme_bw() 
+ 
+all_naive <- fig[[3]] %>%
+  filter(type == "Naive")
+all_KMP <- fig[[3]] %>%
+  filter(type == "KMP")
+
+all_mn_kmp <- ggplot(data = all_KMP) +
+    geom_point(mapping = aes(y = median_time/(m*n), x = m, color = RunName))  + theme_bw()  + ylim(0, 5e-7)
+all_mn_naive <- ggplot(data = all_naive) +
+    geom_point(mapping = aes(y = median_time/(m*n), x = m, color = RunName))  + theme_bw() + ylim(0,5e-7)
+
+all_m_plus_n_kmp <- ggplot(data = all_KMP) +
+    geom_point(mapping = aes(y = median_time/(m+n), x = m, color = RunName))  + theme_bw()  
+all_m_plus_n_naive <- ggplot(data = all_naive) +
+    geom_point(mapping = aes(y = median_time/(m+n), x = m, color = RunName))  + theme_bw()
+
 
 # ggarrange(constant_m_kmp, constant_m_naive, all_mn_kmp, all_mn_naive,all_m_plus_n_kmp,all_m_plus_n_naive,
 #       labels = c('Constant m: KMP ', 'Constant m: Naive', 'KMP: Time/n*m:' ,'Naive: Time/m*n', 'KMP: Time/n+m', 'Naive: Time/n+m'),
@@ -272,7 +296,7 @@ fig <- ploting(df_Naive, df_KMP)
 ```
 
 First we keep **m** constant and vary the **n** showing that slope is much more steeper when using Naive algorithm indicating that time is not linear. In KMP the slope does not change taking into account both, worst case and best case, which indicates linear time.
-```{r}
+```{r, echo=FALSE}
 ggarrange(constant_m_kmp, constant_m_naive, 
       labels = c('Constant m: KMP ', 'Constant m: Naive'),
       ncol = 2, nrow =1)
@@ -280,7 +304,7 @@ ggarrange(constant_m_kmp, constant_m_naive,
 
 When we plot the time measurments of KMP algorithm by dividing **(n*m)** we can see that points will tend to get closer to the 0, which indicates wrong scale. Since, KMP runs in m+n time we can not prove much using this plot. On the other hand, Naive algorithm confirms **n * m** time consumption since it tends to become constant when **m** is above 200.
 
-```{r}
+```{r, echo=FALSE}
 ggarrange(all_mn_kmp, all_mn_naive, 
       labels = c('KMP: Time/n*m', 'Naive: Time/n*m'),
       ncol = 2, nrow =1)
@@ -288,7 +312,7 @@ ggarrange(all_mn_kmp, all_mn_naive,
 
 In this case, we want to prove that KMP runs in linear time and when you try to plot Naive algorithm on the scale n+m the running time does not reach a constant time. On KMP plot, we can also see a shift around m = 250 which could be explained background processing or allocation of resources.
 
-```{r}
+```{r, echo=FALSE}
 ggarrange(all_m_plus_n_kmp, all_m_plus_n_naive, 
       labels = c('KMP: Time/n+m', 'Naive: Time/n+m'),
       ncol = 2, nrow =1)
