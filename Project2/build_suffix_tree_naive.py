@@ -4,6 +4,7 @@
 # 3. Function to print the tree
 # 4. Function to evaluate/compare the algorithm
 # 5. Write report
+# 6. Implement McCreight if we still have time
 
 from ete3 import Tree
 import numpy
@@ -38,8 +39,8 @@ def build_suffix_tree(input_string, suffixes):
 
 
 
-
 input_string = "baaavb"
 suffixes = build_suffixes_naive(input_string)
 print(suffixes)
 build_suffix_tree(input_string, suffixes)
+
