@@ -15,21 +15,50 @@ library(ggpubr)
 
 ## Program description
 
-The programs are implemented in Python, we had no unsolved issues implementing the algorithms.
-Execution of the program on commandline takes the form:
-  python suffix_tree_naive.py [text-filename] [str-pattern]
-and the output is directly to the console.
+The programs are implemented in Python (3) and we had no unsolved issues implementing the algorithms.
+Execution of the program on command line takes the form:
+
+```{r, engine = 'python', eval = FALSE}
+python suffix_tree_naive.py [text-filename] [str-pattern]
+```
+
+The output is directly to the console as a list of indexes of each first character of the pattern present in the text. If the pattern does not exist in the text `None` is returned.
 
 ## Test of search-suffix-tree-naive
 We used the data provided for testing which outputs the following results:
+
 python suffix_tree_naive.py mississippi.txt ss
 [3, 6]
 
+python suffix_tree_naive.py banana.txt ana
+[2, 4]
+
+We have also compared those results to the Naive exact match approach, and they give the same indexes.
 
 ## Time complexity
+
+### Building the suffix tree
+The implementation of the algorithm was made using the naive approach, which has $O(n^2)$ time construction complexity. 
+We defined the worst scenario to build a suffix tree by creating a text $T$ that has alphabet size = 1. For example: 'aaaaaaaa`$`', where the sentinel character (`$`) is included in order to ensure that every suffix of the text `T$` is represented by a leave.
+We increased the length of the text and stored the time of each tree-building operation.
+
+### Searching through the tree
+Once the suffix tree from $T$ is build then search through the suffix tree. Since all the substring of the text $T$ is present in the suffix tree it is easy to verify if a pattern $P$ would be present in the text. It goes from the first character of the pattern until its last, if one cannot proceed through the next character of pattern through the tree, it means that the pattern does not occur in the suffix tree/text. The operation of searching for the pattern through the tree takes O(m) time. 
+
+We have decided to evaluate the data based on 4 different scenarios:
+* Tx-Pc: where the text is variable and the pattern is constant
+* Tc-Px: where the text is constant and the pattern is variable
+* Tx-Px: both text and patterns are variable
 ```{r}
-df_build.naive = read.csv( "Test - SuffixTree Build - Naive.csv" )
+setwd('/Users/PM/Dropbox/Genome_scale_algorithms/Genome_scale_algorithms/Project2')
+library(dplyr)
+library(ggpubr)
+
+df_build.naive = read.csv( "Test - SuffixTree Build - Naive.csv" , header = F)
 colnames(df_build.naive) = c("Function", "Time", "Test", "text.len", "pattern.len", "occurrences", "?")
+
+
+
 df_search = read.csv( "Test - SuffixTree Search.csv" )
 colnames(df_search) = c("Function", "Time", "Test", "text.len", "pattern.len", "occurrences", "?")
 

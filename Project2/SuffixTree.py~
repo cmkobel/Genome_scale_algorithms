@@ -7,8 +7,9 @@ class SuffixTree_Naive:
 
     # -- A compacted Trie
     '''
-    Construct tree i.
-    For i from 1 to m - 1 do
+
+    Construct tree Ii.
+    For i from 1 to m — 1 do
     begin {phase i + 1}
         For j from 1 to i + 1
         begin {extension j}
