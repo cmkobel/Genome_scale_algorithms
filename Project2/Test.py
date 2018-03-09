@@ -572,11 +572,121 @@ def TestP02_SuffixTree_Naive_aab():
 
     print("    done")
 
+def TestP02_SuffixTree_Naive_abc():
+
+    # Create timers
+    TimerSet_BuildNaive = CallTime.CallTime(SuffixTree.SuffixTree_Naive.Generate_Naive)
+    TimerSet_Search = CallTime.CallTime(SuffixTree.SuffixTree_Naive.SearchInTree)
+
+    # Build unstructured string
+    alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    text_rnd = TestTools.TestTools.String_Random(10000, alphabet)
+    pattern_rnd = TestTools.TestTools.String_Random(1000, alphabet)
+
+    print("Naive - text: abc, pattern: all a's - vary text, hold pattern")
+    for l in range(0, 200):
+
+        # Build test strings
+        pattern = pattern_rnd[0:16]
+        text = text_rnd[0:((1+l)*20)]
+
+        # Build argument for Generator
+        args = [text]
+        csv_output = ["abc-Tx-Pc", len(text), len(pattern)]
+
+        # Measure runtime for Generator
+        # 'st' is suffix tree
+        st = TimerSet_BuildNaive.Measure(args, csv_output)
+
+        # Build argument for Search
+        args = [st, pattern]
+
+        # Measure runtime for Search
+        occurrences = TimerSet_Search.Measure( args, csv_output )
+
+        # Add # occurrences to csv output
+        TimerSet_BuildNaive.AppendToLastEntry(len(occurrences))
+        TimerSet_Search.AppendToLastEntry(len(occurrences))
+
+        # Print progress
+        if l % 10 == 0:
+            print("    l:" + str(l))
+
+    TimerSet_BuildNaive.Save_Append("Test - SuffixTree Build - Naive.csv")
+    TimerSet_Search.Save_Append("Test - SuffixTree Search.csv")
+
+    print("Naive - text: abc..b, pattern: all a's - hold text, vary pattern")
+    for l in range(0, 200):
+
+        # Build test strings
+        pattern = pattern_rnd[0:((1 + l) * 5)]
+        text = text_rnd[0:2000]
+
+        # Build argument for Generator
+        args = [text]
+        csv_output = ["abc-Tc-Px", len(text), len(pattern)]
+
+        # Measure runtime for Generator
+        # 'st' is suffix tree
+        st = TimerSet_BuildNaive.Measure(args, csv_output)
+
+        # Build argument for Search
+        args = [st, pattern]
+
+        # Measure runtime for Search
+        occurrences = TimerSet_Search.Measure(args, csv_output)
+
+        # Add # occurrences to csv output
+        TimerSet_BuildNaive.AppendToLastEntry(len(occurrences))
+        TimerSet_Search.AppendToLastEntry(len(occurrences))
+
+        # Print progress
+        if l % 10 == 0:
+            print("    l:" + str(l))
+
+    TimerSet_BuildNaive.Save_Append("Test - SuffixTree Build - Naive.csv")
+    TimerSet_Search.Save_Append("Test - SuffixTree Search.csv")
+
+    print("Naive - text: abc..b, pattern: all a's - vary text, vary pattern")
+    for l in range(0, 200):
+
+        # Build test strings
+        pattern = pattern_rnd[0:((1 + l) * 5)]
+        text = text_rnd[0:((1 + l) * 20)]
+
+        # Build argument for Generator
+        args = [text]
+        csv_output = ["abc-Tx-Px", len(text), len(pattern)]
+
+        # Measure runtime for Generator
+        # 'st' is suffix tree
+        st = TimerSet_BuildNaive.Measure(args, csv_output)
+
+        # Build argument for Search
+        args = [st, pattern]
+
+        # Measure runtime for Search
+        occurrences = TimerSet_Search.Measure(args, csv_output)
+
+        # Add # occurrences to csv output
+        TimerSet_BuildNaive.AppendToLastEntry(len(occurrences))
+        TimerSet_Search.AppendToLastEntry(len(occurrences))
+
+        # Print progress
+        if l % 10 == 0:
+            print("    l:" + str(l))
+
+    TimerSet_BuildNaive.Save_Append("Test - SuffixTree Build - Naive.csv")
+    TimerSet_Search.Save_Append("Test - SuffixTree Search.csv")
+
+    print("    done")
+
 
 
 Const.DEBUG = False
 #TestP02_SuffixTree_Naive_aaa()
-TestP02_SuffixTree_Naive_aab()
+#TestP02_SuffixTree_Naive_aab()
+TestP02_SuffixTree_Naive_abc()
 
 #st = SuffixTree.SuffixTree_Naive.Generate_Naive( "aaaaaaa" )
 #st = SuffixTree.SuffixTree_Naive.Generate_Naive( "aaabcabcaaabbb" )

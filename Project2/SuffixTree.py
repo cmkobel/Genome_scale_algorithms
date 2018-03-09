@@ -210,6 +210,10 @@ class SuffixTree_Naive:
         while i < len(pattern):
 
             chr_p = pattern[i]
+
+            if len(vc.children) < s + 1:
+                # No children, but still pattern chars to match ... no matches
+                return []
             vx = vc.children[s]
             chr_s = self.text[vx.char_start + j]
 
