@@ -8,9 +8,74 @@ output:
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(ggpubr)
 ```
 
 ##Project 2 - Suffix tree construction
+
+## Program description
+
+The programs are implemented in Python, we had no unsolved issues implementing the algorithms.
+Execution of the program on commandline takes the form:
+  python suffix_tree_naive.py [text-filename] [str-pattern]
+and the output is directly to the console.
+
+## Test of search-suffix-tree-naive
+We used the data provided for testing which outputs the following results:
+python suffix_tree_naive.py mississippi.txt ss
+[3, 6]
+
+
+## Time complexity
+```{r}
+df_build.naive = read.csv( "Test - SuffixTree Build - Naive.csv" )
+colnames(df_build.naive) = c("Function", "Time", "Test", "text.len", "pattern.len", "occurrences", "?")
+df_search = read.csv( "Test - SuffixTree Search.csv" )
+colnames(df_search) = c("Function", "Time", "Test", "text.len", "pattern.len", "occurrences", "?")
+
+fixed_text_size_build <- df_build.naive %>%
+  filter(text.len == 500)
+
+fixed_patter_size_build <- df_build.naive %>%
+  filter(pattern.len == 10)
+
+fixed_text_size_search <- df_search %>%
+  filter(text.len == 500)
+
+fixed_pattern_size_search <- df_search %>%
+  filter(pattern.len == 10)
+
+
+plot1 <- ggplot(data = fixed_patter_size_build) + 
+  geom_point(mapping = aes(x = text.len/Time^2, y = Time)) +
+  ggtitle("Building tree: \nFixed pattern size: n^2 time") +
+  geom_hline(yintercept = 0.01, color = "red")
+
+plot2 <- ggplot(data = fixed_text_size_build) + 
+  geom_point(mapping = aes(x = pattern.len/Time^2, y = Time)) + 
+  geom_hline(yintercept = 0.18, color = "red") +
+  ggtitle("Building tree: \nFixed text size: n^2 time")
+
+plot3 <- ggplot(data = fixed_text_size_search) + 
+  geom_point(mapping = aes(x = pattern.len/Time^2, y = Time)) + 
+  geom_hline(yintercept = 0.00008, color = "red") +
+  ggtitle("Searching tree: \nFixed text size: n^2 time")
+
+#we dont need fourth plot since, searching the tree is not affected by text size, only the pattern
+
+ggarrange(plot1,plot2,plot3,
+      ncol = 2, nrow =2) 
+  
+```
+
+```{r}
+
+ggplot(data = df_build.naive) + 
+  geom_point(mapping = aes(x = pattern.len, y = Time, color = Test)) +
+  ggtitle("")
+
+```
+
 
 Instruction of the project: https://github.com/mailund/gsa-exercises/tree/master/Project02
 
