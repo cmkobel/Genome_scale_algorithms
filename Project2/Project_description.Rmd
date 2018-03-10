@@ -71,14 +71,6 @@ plot1 <- ggplot(data = fixed_patter_size_build) +
 #  geom_hline(yintercept = 0.18, color = "red") +
 #  ggtitle("Building tree: \nFixed text size: n^2 time") + theme_bw()
 
-# Subsetting data:
-bellow_pattern_size <-df_build.naive %>%
-  filter(pattern.len <= 250)  %>%
-  filter(pattern.len > 50)
-plot2 <- ggplot(data = bellow_pattern_size ) + 
-  geom_point(mapping = aes(x = pattern.len, y = Time, color = Test)) +
-  ggtitle("Search time for different variable combinations") + theme_bw()
-
 plot1
 
 ```
@@ -87,6 +79,14 @@ In these two plots it is clear to observe that the time complexity to construct 
 $$\sum_{1}^{n} O(n - i + 1) = \sum_{1}^{n} O(i) = O(n^2) $$
 
 ```{r}
+# Subsetting data:
+bellow_pattern_size <-df_build.naive %>%
+  filter(pattern.len <= 250)  %>%
+  filter(pattern.len > 50)
+plot2 <- ggplot(data = bellow_pattern_size ) + 
+  geom_point(mapping = aes(x = pattern.len, y = Time, color = Test)) +
+  ggtitle("Build time for different variable combinations") + theme_bw()
+
 plot2
 ```
 
