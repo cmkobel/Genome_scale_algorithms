@@ -394,7 +394,6 @@ class SuffixTree_Naive:
 
         nodes_full.reverse()
         for vc in nodes_full:
-
             for vx in vc.children:
                 vc.pattern_indices.update( vx.pattern_indices )
 

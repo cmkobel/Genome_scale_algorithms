@@ -11,12 +11,119 @@ df_Raw$RunName = factor(x = df_Raw$RunName)
 df_Raw$Function = factor(x = df_Raw$Function)
 
 runs = levels(df_Raw$RunName)
-run.fib = runs[1]
-run.rand = runs[2]
-run.dna = runs[3]
+run.dna = runs[grep("DNA",runs)]
+run.fib = runs[grep("fib",runs)]
 
 df_dna = df_Raw[df_Raw$RunName == run.dna,]
 df_fib = df_Raw[df_Raw$RunName == run.fib,]
+
+
+# dna
+
+df_dna$t = df_dna$Time / df_dna$n
+df_dna = df_dna[df_dna$t < 1.3e-05,]
+
+plot_dna.lin = ggplot( ) +
+  geom_point( data = df_dna, aes( y = Time / n, x = n  ), color = "#880000", alpha = 0.3 ) +
+  geom_hline(yintercept = 5.9e-06, color = "#008844") + theme_bw()
+
+plot_dna.log = ggplot( ) +
+  geom_point( data = df_dna, aes( y = Time / (n * log(n) ), x = n  ), color = "#000088", alpha = 0.3 ) + 
+  geom_hline(yintercept = 0.84e-06, color = "#448800") + theme_bw() 
+
+plot_dna.sq = ggplot( ) +
+  geom_point( data = df_dna, aes( y = Time / (n * n ), x = n  ), color = "#000088", alpha = 0.3 ) + 
+  geom_hline(yintercept = 0.84e-06, color = "#448800") + theme_bw() 
+
+p_total = ggarrange(plot_dna.lin, plot_dna.log, plot_dna.sq, widths = 1:1, ncol = 1, nrow = 3) + ggtitle("Tandem repeat search - DNA string")
+plot(p_total, fig = c(0,0, 100, 200))
+?ggarrange
+?plot
+# fib
+
+plot_fib.log = ggplot( ) +
+  geom_point( data = df_fib, aes( y = Time / (n * log(n)), x = n  ), color = "#880000", alpha = 0.3 ) +
+  ggtitle("Tandem repeat search - Fibonacci string")
+
+plot_fib.sq = ggplot( ) +
+  geom_point( data = df_fib[df_fib$n > 100,], aes( y = Time / (n * n + z ), x = n  ), color = "#000088", alpha = 0.3 )
+
+ggarrange(plot_fib.log, plot_fib.sq, widths = 1:1, ncol = 1, nrow = 2)
+
+# fib + z
+
+fit_lognz = lm( data = df_fib, formula = Time ~ log(n) * n + z )
+
+c.0 = fit_lognz$coefficients["(Intercept)"]
+c.l = fit_lognz$coefficients["log(n)"]
+c.n = fit_lognz$coefficients["n"]
+c.ln = fit_lognz$coefficients["log(n):n"]
+c.z = fit_lognz$coefficients["z"]
+
+df_fib$t = c.0 + c.l * log(df_fib$n) + c.n * df_fib$n + c.ln * df_fib$n * log(df_fib$n) + c.z * df_fib$z
+
+plot_fib.fit = ggplot( ) +
+  geom_point( data = df_fib, aes( y = Time, x = n  ), color = "#008800", alpha = 0.3 ) +
+  geom_point( data = df_fib, aes( y = t, x = n  ), color = "#000088", alpha = 0.3 ) +
+  theme_bw() +
+  ggtitle("Tandem repeat search - Fibonacci string")
+
+plot_fib.t = ggplot( ) +
+  geom_point( data = df_fib, aes( y = Time / t, x = n  ), color = "#000088", alpha = 0.3 ) +
+  geom_hline(yintercept = 1, color = "#008844") +
+  theme_bw()
+
+ggarrange(plot_fib.fit, plot_fib.t, widths = 1:1, ncol = 1, nrow = 2)
+
+
+
+
+
+
+
+
+geom_hline(yintercept = 2e-0, color = "#008844")
+
+geom_hline(yintercept = 5.9e-06, color = "#008844") + theme_bw() +
+
+df_dna$t = df_dna$Time / df_dna$n
+df_dna = df_dna[df_dna$t < 1.3e-05,]
+
+plot_dna.lin = ggplot( ) +
+  geom_point( data = df_dna, aes( y = Time / n, x = n  ), color = "#880000", alpha = 0.3 ) +
+  geom_hline(yintercept = 5.9e-06, color = "#008844") + theme_bw() +
+  ggtitle("Tandem repeat search - DNA string")
+
+plot_dna.log = ggplot( ) +
+  geom_point( data = df_dna, aes( y = Time / (n * log(n) ), x = n  ), color = "#000088", alpha = 0.3 ) + 
+  geom_hline(yintercept = 0.84e-06, color = "#448800") + theme_bw() 
+
+plot_dna.sq = ggplot( ) +
+  geom_point( data = df_dna, aes( y = Time / (n * n ), x = n  ), color = "#000088", alpha = 0.3 ) + 
+  geom_hline(yintercept = 0.84e-06, color = "#448800") + theme_bw() 
+
+ggarrange(plot_dna.lin, plot_dna.log, widths = 1:1, ncol = 1, nrow = 2)
+
+
+
+?ggarrange
+
+par(mfrow=c(2,1))
+plot( plot_dna.lin )
+plot( plot_dna.log )
+# 
+
+
+
+
+
+ggplot( ) +
+  geom_point( data = df_dna, aes( y = Time, x = n  ), color = "#ff0000", alpha = 0.3 ) +
+  geom_point( data = df_fib, aes( y = Time, x = n  ), color = "#0000ff", alpha = 0.6 )
+
+
+
+
 
 df_test = df_fib
 
