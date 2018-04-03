@@ -2,8 +2,8 @@
 
 # Import - Projecct
 import Const
-import FastaHandler
-import StringMatch
+#import FastaHandler
+#import StringMatch
 import TestTools
 import CallTime
 import SuffixTree
@@ -581,7 +581,10 @@ def TestP02_SuffixTree_Naive_abc():
     # Build unstructured string
     alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     text_rnd = TestTools.TestTools.String_Random(10000, alphabet)
-    pattern_rnd = TestTools.TestTools.String_Random(1000, alphabet)
+
+    # Here I make sure the pattern is contained in the text
+    #pattern_rnd = TestTools.TestTools.String_Random(1000, alphabet)
+    pattern_rnd = text_rnd
 
     print("Naive - text: abc, pattern: all a's - vary text, hold pattern")
     for l in range(0, 200):
@@ -676,8 +679,8 @@ def TestP02_SuffixTree_Naive_abc():
         if l % 10 == 0:
             print("    l:" + str(l))
 
-    TimerSet_BuildNaive.Save_Append("Test - SuffixTree Build - Naive.csv")
-    TimerSet_Search.Save_Append("Test - SuffixTree Search.csv")
+    TimerSet_BuildNaive.Save_Append("Test - SuffixTree Build - Naive_testing.csv")
+    TimerSet_Search.Save_Append("Test - SuffixTree Search_testing.csv")
 
     print("    done")
 

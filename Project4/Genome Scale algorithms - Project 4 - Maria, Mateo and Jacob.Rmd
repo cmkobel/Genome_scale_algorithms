@@ -1,0 +1,34 @@
+---
+title: "Project 3: Genome Scale algorithms"
+author: "Maria, Mateo and Jacob"
+date: "2/20/2018"
+output:
+  pdf_document:
+  variant: markdown_github
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggpubr)
+```
+Instruction of the project: https://github.com/mailund/gsa-exercises/tree/master/Project04
+
+##Project 4 - Suffix arrays and BW-match
+
+## Program description
+
+The program is implemented in Python and we had no unsolved issues implementing the algorithms.
+Execution of the program on command line takes the form:
+
+```{r, engine = 'python', eval = FALSE, python.reticulate = F}
+python tandem.py [text-filename]
+```
+
+The program outputs the number of branching and non-branching tandem repeats to the console, and the full list in a file with same basename as the input file, but with the suffix out.
+
+## Test of correctness
+We used the test data provided in testdata.zip to test the correctness of the program.
+
+## Time complexity of Suffix arrays and BW-match
+
+
+

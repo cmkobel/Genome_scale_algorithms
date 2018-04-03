@@ -38,6 +38,19 @@ We have also compared those results to the Naive exact match approach and they g
 
 ## Time complexity
 
+We have decided to evaluate the algorithm based on 3 different scenarios:
+
+1. Tx-Pc: where the text is variable and the pattern is constant
+2. Tc-Px: where the text is constant and the pattern is variable
+3. Tx-Px: both text and patterns are variable
+
+Using 3 different strings types:
+
+1. aaa, alphabet size equal to 1 
+2. aab, alphabet size equal to 2, but just one character different in the end
+3. abc, alphabet size equal to 62 (including numbers and Upper case letters) 
+
+
 ### Building the suffix tree
 The implementation of the algorithm was made using the naive approach, which has $O(n^2)$ time construction complexity.
 To construct the suffix tree, each suffix is added at time, simply by comparing one character at time starting by the root of the tree. 
@@ -75,20 +88,25 @@ plot1
 
 ```
 
-In these two plots it is clear to observe that the time complexity to construct the tree is quadratic ($O(n^2)$). This is because we need time $O(n - i + 1)$ for the $i-th$ suffix and hence the total running time is:
+In this plot it is clear to observe that the time complexity to construct the tree is quadratic ($O(n^2)$). This is because we need time $O(n - i + 1)$ for the $i-th$ suffix and hence the total running time is:
 $$\sum_{1}^{n} O(n - i + 1) = \sum_{1}^{n} O(i) = O(n^2) $$
 
-```{r}
+```{r, echo = F}
 # Subsetting data:
-bellow_pattern_size <-df_build.naive %>%
-  filter(pattern.len <= 250)  %>%
-  filter(pattern.len > 50)
-plot2 <- ggplot(data = bellow_pattern_size ) + 
-  geom_point(mapping = aes(x = pattern.len, y = Time, color = Test)) +
-  ggtitle("Build time for different variable combinations") + theme_bw()
+different_alphabet_size <-df_build.naive %>%
+  filter(text.len <= 500)  %>%
+  filter(Test %in% c(' abc-Tx-Pc', ' aaa-Tx-Pc', ' aab-Tx-Pc'))
+
+plot2 <- ggplot(data = different_alphabet_size) + 
+  geom_point(mapping = aes(x = text.len, y = Time, color = Test)) +
+  ggtitle("Build time for different alphabet size") + theme_bw()
 
 plot2
 ```
+
+This plot shows that the alphabet size matters when constructing the tree. When the text is repetitive, one need to match through all the characters of the tree before pulling out the sentinel character (`$`):
+
+![Best and worst case for the construction time.](/Users/PM/Dropbox/Genome_scale_algorithms/Genome_scale_algorithms/Project2/worst_case_best_case_construction.pdf)
 
 ### Searching through the tree
 
@@ -102,22 +120,10 @@ Therefore, the time for the search can be split in 3 different operations:
 2. Collecting the leaves: $O(j)$
 3. Both operation yield in: $O(m +j)$
 
-We have decided to evaluate the data based on 3 different scenarios:
+As seen in the following graph:
 
-1. Tx-Pc: where the text is variable and the pattern is constant
-2. Tc-Px: where the text is constant and the pattern is variable
-3. Tx-Px: both text and patterns are variable
-
-Using 3 different strings types:
-
-1. aaa, alphabet size equal to 1 
-2. aab, alphabet size equal to 2, but just one character different in the end
-3. abc, alphabet size equal to 62 (including numbers and Upper case letters) 
-
-```{r}
-
-
-df_search = read.csv( "Test - SuffixTree Search.csv" )
+```{r, echo = F}
+df_search = read.csv( "Test - SuffixTree Search.csv", header = F )
 colnames(df_search) = c("Function", "Time", "Test", "text.len", "pattern.len", "occurrences", "?")
 
 fixed_text_size_search <- df_search %>%
@@ -126,25 +132,34 @@ fixed_text_size_search <- df_search %>%
 fixed_pattern_size_search <- df_search %>%
   filter(pattern.len == 10)
 
-plot3 <- ggplot(data = fixed_text_size_search) + 
-  geom_point(mapping = aes(x = pattern.len/Time^2, y = Time)) + 
-  geom_hline(yintercept = 0.00008, color = "red") +
-  ggtitle("Searching tree: \nFixed text size: n^2 time") + theme_bw()
-
-plot3
-
-  
+ggplot(data = fixed_text_size_search) + 
+geom_point(mapping = aes(x = pattern.len/Time^2, y = Time)) + 
+geom_hline(yintercept = 0.00008, color = "red") +
+ggtitle("Searching tree: \nFixed text size: n^2 time") + theme_bw()
 ```
 
-```{r}
+```{r, echo = F}
 
 # Subsetting data:
 bellow_pattern_size <- df_search %>%
   filter(pattern.len <= 250)  %>%
-  filter(pattern.len > 50)
+  filter(pattern.len > 50) 
+  
 ggplot(data = bellow_pattern_size ) + 
   geom_point(mapping = aes(x = pattern.len, y = Time, color = Test)) +
   ggtitle("Search time for different variable combinations") + theme_bw()
 
 ```
 
+Not taking into account the number of occurences of the pattern in the text, it is possible to see that the time to search is proportional to the depht of the search. If the text is repetitive, one would need to go deeper in the nodes. If the text is random, it is unlikely that one would need to go that deep before finds a match or before a mismatch.
+
+```{r, echo=F}
+occurrences <- bellow_pattern_size %>%
+  filter( Test %in% c(" abc-Tc-Px", ' abc-Tx-Px'))
+
+ggplot(data = occurrences) + 
+  geom_point(mapping = aes(x = pattern.len, y = Time, color = occurrences)) +
+  ggtitle("Search time for tests abc-Tc-Px and abc-Tx-Px") + theme_bw()
+```
+
+You can see through this graph that time grows with the existence of the pattern in the tree.
