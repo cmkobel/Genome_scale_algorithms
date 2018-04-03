@@ -1,0 +1,10 @@
+
+UNLIMITEDNEG = -2147483648
+UNLIMITED = 2147483647
+
+DEBUG = False
+
+
+#GITHUB
+# jtaurm
+# cocoN0T

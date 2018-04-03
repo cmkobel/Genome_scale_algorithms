@@ -1,0 +1,132 @@
+---
+title: "Project 3: Genome Scale algorithms"
+author: "Maria, Mateo and Jacob"
+date: "2/20/2018"
+output:
+  pdf_document:
+  variant: markdown_github
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggpubr)
+```
+Instruction of the project: https://github.com/mailund/gsa-exercises/tree/master/Project03
+
+##Project 3 - Tandem repeats
+
+## Program description
+
+The program is implemented in Python and we had no unsolved issues implementing the algorithms.
+Execution of the program on command line takes the form:
+
+```{r, engine = 'python', eval = FALSE, python.reticulate = F}
+python tandem.py [text-filename]
+```
+
+The program outputs the number of branching and non-branching tandem repeats to the console, and the full list in a file with same basename as the input file, but with the suffix out.
+
+## Test of correctness
+We used the test data provided in testdata.zip to test the correctness of the program.
+
+## Time complexity of the Tandem repeat search
+
+The implementation is done in two parts. First the suffix tree construction from the last project which runs in $O(n^2)$ time. Time measurements for this will not be featured here. The second part is the tandem search algorithm, which the following measurements revolve around, and is measured in code/python.
+
+The implementation of the algorithm was modeled on Stoye-Gusfield approach, and supposedly runs in $O(log(n)*n+z)$ time as a worst case, where $n$ is the input string length and $z$ the number of tandem repeats.
+
+The worst case scenario was created using fibonacci strings of varying length, while regular usage was simulated with random strings over the alphabet A,T,G,C.
+
+#### Random strings
+
+The first plot shows the search $time$ over $n$, and yet still rising. The second is search $time$ over $n log(n)$, where an asymptote seems to appear. The third plot is search $time$ over $n^2$, and this is too much as it forces a asymptote at zero, supporting the $n log(n)$ runtime.
+
+```{r, echo = FALSE, message = FALSE, fig.height=3.5}
+setwd("C:/Docs/Code/GitHub/Genome_scale_algorithms/Project3")
+
+library(tidyverse)
+
+df_Raw = read.csv("Test - SuffixTree Tandem Repeats.csv", header = FALSE)
+
+colnames(df_Raw) = c("Function", "Time", "RunName", "n", "z")
+
+df_Raw$RunName = factor(x = df_Raw$RunName)
+df_Raw$Function = factor(x = df_Raw$Function)
+
+runs = levels(df_Raw$RunName)
+run.dna = runs[grep("DNA",runs)]
+run.fib = runs[grep("fib",runs)]
+
+df_dna = df_Raw[df_Raw$RunName == run.dna,]
+df_fib = df_Raw[df_Raw$RunName == run.fib,]
+
+df_dna$t = df_dna$Time / df_dna$n
+df_dna = df_dna[df_dna$t < 1.3e-05,]
+
+plot_dna.lin = ggplot( ) +
+  geom_point( data = df_dna, aes( y = Time / n, x = n  ), color = "#880000", alpha = 0.3 ) +
+  geom_hline(yintercept = 5.9e-06, color = "#008844") + theme_bw()
+
+plot_dna.log = ggplot( ) +
+  geom_point( data = df_dna, aes( y = Time / (n * log(n) ), x = n  ), color = "#000088", alpha = 0.3 ) + 
+  geom_hline(yintercept = 0.84e-06, color = "#448800") + theme_bw()
+
+plot_dna.sq = ggplot( scale = 0.2 ) +
+  geom_point( data = df_dna, aes( y = Time / (n^2), x = n  ), color = "#008800", alpha = 0.3 ) + theme_bw() 
+
+ggarrange(plot_dna.lin, plot_dna.log, plot_dna.sq, ncol = 1, nrow = 3)
+
+```
+
+#### Fibonacci strings
+
+Fibonacci string contains $0.7962 * n * log(n) + n$ tandem repeats, and are therefore suitable for a worst case scenario.
+
+The first plot shows the search $time$ over $n log(n)$, and yet still rising. The second is search $time$ over $n^2$, where an  asymptote seems to appear, this is however not in line with the theory, but $z$ has yet to be added to the analysis. 
+
+```{r, echo = FALSE, warning = FALSE}
+
+plot_fib.log = ggplot( ) +
+  geom_point( data = df_fib, aes( y = Time / (n * log(n)), x = n  ), color = "#880000", alpha = 0.3 ) +
+  xlim(0,6000)
+
+plot_fib.sq = ggplot( ) +
+  geom_point( data = df_fib[df_fib$n > 100,], aes( y = Time / (n^2), x = n  ), color = "#000088", alpha = 0.3 ) +
+  xlim(0,6000)
+
+ggarrange(plot_fib.log, plot_fib.sq, widths = 1:1, ncol = 1, nrow = 2)
+
+
+```
+
+The following graph shows the fit of $time = n * log(n) + z$, in an attempt to let $z$ explain the seemingly squared runtime from before.
+The first plot shows the time used in green, and the precidtions of the fit in blue. The second is search $time$ over the prediction, here the asymptote around 1 (green) supports the theoretical runtime. 
+
+
+```{r, echo = FALSE, warning=FALSE}
+
+fit_lognz = lm( data = df_fib, formula = Time ~ log(n) * n + z )
+
+c.0 = fit_lognz$coefficients["(Intercept)"]
+c.l = fit_lognz$coefficients["log(n)"]
+c.n = fit_lognz$coefficients["n"]
+c.ln = fit_lognz$coefficients["log(n):n"]
+c.z = fit_lognz$coefficients["z"]
+
+df_fib$t = c.0 + c.l * log(df_fib$n) + c.n * df_fib$n + c.ln * df_fib$n * log(df_fib$n) + c.z * df_fib$z
+
+plot_fib.fit = ggplot( ) +
+  geom_point( data = df_fib, aes( y = Time, x = n  ), color = "#008800", alpha = 0.3 ) +
+  geom_point( data = df_fib, aes( y = t, x = n  ), color = "#000088", alpha = 0.3 ) +
+  theme_bw() + xlim(0,6000) +
+  ggtitle("Tandem repeat search - Fibonacci string")
+
+plot_fib.t = ggplot( ) +
+  geom_point( data = df_fib, aes( y = Time / t, x = n  ), color = "#000088", alpha = 0.3 ) +
+  geom_hline(yintercept = 1, color = "#008844") +
+  theme_bw() + xlim(0,6000)
+
+ggarrange(plot_fib.fit, plot_fib.t, widths = 1:1, ncol = 1, nrow = 2)
+  
+```
+
+
