@@ -9,14 +9,3 @@ def build_array_naive(string):
 	return zero_index
 
 print build_array_naive('banana')
-
-def build_array_radix_sort():
-	pass
-
-
-def binary_search():
-	pass
-
-
-def burrows_Wheeler_search():
-	pass
