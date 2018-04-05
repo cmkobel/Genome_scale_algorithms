@@ -1,4 +1,4 @@
-import time,sys
+import time,sys,string,random
 sys.setrecursionlimit(40000)
 
 def generate_fibonacci_string(start, n):
@@ -28,23 +28,28 @@ def radix_sort(input, i):
     # Recurse over all buckets (if empty first if will return)
     buckets = [radix_sort(x, i+1) for x in buckets]
     # Concat all non empty buckets together
-    sorted_list = []
-    sorted_list = done + sorted_list
-    for bucket in buckets:
-        if len(bucket) != 0: #skip empty buckets
-            for b in bucket:
-                sorted_list.append(b)
 
-    return sorted_list
+    return done + [ b for blist in buckets for b in blist ]
+    #sorted_list = []
+    #sorted_list = done + sorted_list
+    #for bucket in buckets:
+    #    if len(bucket) != 0: #skip empty buckets
+    #        for b in bucket:
+    #            sorted_list.append(b)
+
+    #return sorted_list
 
 
+random_strings = []
 file = open('time_radix.csv', 'a')
 file.write("Algorithm" + "," + "time" + "," + "n"+"\n")
-for i in range(23):
-    fib_list = generate_fibonacci_string("ab", i)
+for i in range(1, 1000000, 100):
+    random_strings.append(''.join(random.choices(string.ascii_lowercase, k=i)))
+    #print("Fib NOT sorted: ",random_strings)
     start = time.time()
-    sorted_fib = radix_sort(fib_list, 0)
+    sorted_fib = radix_sort(random_strings, 0)
     end = time.time()
+    #print("Fib Sorted: ",sorted_fib, "\n")
     file.write("radix_sort" + "," + str(end-start) +  ","+ str(i) + "\n")
 
 file.close()

@@ -33,7 +33,7 @@ We used the test data provided in testdata.zip to test the correctness of the pr
 ```{r}
 radix = read.csv("time_radix.csv", header = T)
 ggplot(data = radix) + 
-        geom_point(mapping = aes(y = time/(n*log(n)), x = n)) + theme_bw() 
+        geom_point(mapping = aes(y = time/n, x = n)) + theme_bw() 
 ```
 
 
