@@ -29,7 +29,8 @@ The program outputs the number of branching and non-branching tandem repeats to 
 ## Test of correctness
 We used the test data provided in testdata.zip to test the correctness of the program.
 
-## Time complexity of Suffix arrays and BW-match
+## Time complexity of sorting (python sort and radix sort)
+
 ```{r}
 radix = read.csv("time_radix.csv", header = T)
 ggplot(data = radix) + 
