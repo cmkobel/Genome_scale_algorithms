@@ -31,9 +31,12 @@ We used the test data provided in testdata.zip to test the correctness of the pr
 
 ## Time complexity of Suffix arrays and BW-match
 ```{r}
-radix = read.csv("time_radix.csv", header = T)
-ggplot(data = radix) + 
-        geom_point(mapping = aes(y = time/n, x = n)) + theme_bw() 
+bin_search = read.csv("time_binary_search.csv", header = T)
+ggplot(data = bin_search) + 
+        geom_point(mapping = aes(y = time, x = n, color = Algorithm))
+
+ggplot(data = bin_search) + 
+        geom_point(mapping = aes(y = time/n^2, x = n, color = Algorithm))
 ```
 
 

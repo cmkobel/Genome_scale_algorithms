@@ -1,5 +1,4 @@
-from suffix_build import build_array_naive
-
+import suffix_build
 
 
 def burrows_Wheeler_search():
