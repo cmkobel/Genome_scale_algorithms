@@ -74,12 +74,31 @@ def search_bw(suffix_array, text, pat, O_table, C_table):
 	else:
 		return(-1)
 
-text = 'mississippi$'
-suffix_array = build_array_naive(text)
-O =  build_o_table(suffix_array, text)
-C = build_c_table(suffix_array, text)
+# text = 'mississippi$'
+# suffix_array = build_array_naive(text)
+# O =  build_o_table(suffix_array, text)
+# C = build_c_table(suffix_array, text)
 
 
-print search_bw(suffix_array, text, argv[1], O, C)
+# print search_bw(suffix_array, text, argv[1], O, C)
+
+random_strings = []
+file = open('time_bwt_search.csv', 'a')
+file.write("Algorithm" + "," + "time" + "," + "n"+"\n")
+text = "aaa"
+patern = "aaa"
+for i in range(3, 10000, 100):
+
+	# Pre-build tables
+	suffix_array = build_array_naive(text)
+	O =  build_o_table(suffix_array, text)
+	C = build_c_table(suffix_array, text)
+	start = time.time()
+	search_bw(suffix_array, text, patern, O, C)
+    end = time.time()
+    file.write("bwt_search" + "," + str(end-start) + ","+ str(i) + "\n")
+    text = text + i*("a")
+
+file.close()
 
 
