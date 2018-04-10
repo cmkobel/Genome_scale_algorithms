@@ -2,10 +2,6 @@ from suffix_build import build_array_naive
 from sys import argv
 
 
-def burrows_Wheeler_search():
-	# Doing the pattern matching using the c table and the o table
-	pass
-
 def build_c_table(suffix_array, text):
 	'''
 	Number of symbols in x[0...n-2] that are lexicographic smaller than a, i.e. how many suffixes of x (excluding $) 
@@ -77,7 +73,6 @@ def search_bw(suffix_array, text, pat, O_table, C_table):
 		return(suffix_array[l:r+1])
 	else:
 		return(-1)
-
 
 text = 'mississippi$'
 suffix_array = build_array_naive(text)
