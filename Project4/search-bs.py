@@ -43,7 +43,7 @@ def binary_search(pat, text):
 	if s != r:
 		zero_indexed = suffix_array[s:r]
 		one_indexed  = [x+1 for x in zero_indexed]
-		return(sorted(one_indexed))
+        return(sorted(one_indexed))
 		
 
 #fileName = argv[1]
