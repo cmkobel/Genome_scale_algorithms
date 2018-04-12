@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc0dfe88-d749-4c44-ad7d-54f906e9c1a1" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Project4/time_binary_search.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Project4/time_bw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project4/.Rhistory" beforeDir="false" afterPath="$PROJECT_DIR$/Project4/.Rhistory" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project4/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Project4/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Project4/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project4/Genome Scale algorithms - Project 4 - Maria, Mateo and Jacob.Rmd" beforeDir="false" afterPath="$PROJECT_DIR$/Project4/Genome Scale algorithms - Project 4 - Maria, Mateo and Jacob.Rmd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project4/radix_sort.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project4/radix_sort.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project4/search-bs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project4/search_bs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project4/search-bw.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project4/search_bw.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project4/serach-bw.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project4/search_bs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project4/search_bs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project4/time_binary_search.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project4/time_binary_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project4/time_binary_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project4/time_bw.py" beforeDir="false" afterPath="$PROJECT_DIR$/Project4/time_bw.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project4/time_bwt_search.csv" beforeDir="false" />
     </list>
     <ignored path="Genome_scale_algorithms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,8 +30,8 @@
       <file leaf-file-name="search_bs.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Project4/search_bs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="48" selection-start-line="48" selection-start-column="2" selection-end-line="53" selection-end-column="35" />
+            <state relative-caret-position="503">
+              <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -48,8 +42,8 @@
       <file leaf-file-name="search_bw.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Project4/search_bw.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+            <state relative-caret-position="73">
+              <caret line="64" column="24" lean-forward="true" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -60,10 +54,10 @@
       <file leaf-file-name="time_binary_search.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Project4/time_binary_search.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+            <state relative-caret-position="360">
+              <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#0#27#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,10 +66,10 @@
       <file leaf-file-name="time_bw.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Project4/time_bw.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+            <state relative-caret-position="364">
+              <caret line="31" column="6" selection-start-line="22" selection-start-column="4" selection-end-line="31" selection-end-column="6" />
               <folding>
-                <element signature="e#0#16#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -84,8 +78,8 @@
       <file leaf-file-name="radix_sort.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Project4/radix_sort.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-292">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="223">
+              <caret line="45" column="80" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -102,6 +96,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>print</find>
+      <find>time</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -121,8 +116,10 @@
         <option value="$PROJECT_DIR$/Project4/search_bw.py" />
         <option value="$PROJECT_DIR$/Project4/radix_sort.py" />
         <option value="$PROJECT_DIR$/Project4/Genome Scale algorithms - Project 4 - Maria, Mateo and Jacob.Rmd" />
-        <option value="$PROJECT_DIR$/Project4/search_bs.py" />
+        <option value="$PROJECT_DIR$/Project4/time_binary_search.csv" />
         <option value="$PROJECT_DIR$/Project4/time_binary_search.py" />
+        <option value="$PROJECT_DIR$/Project4/search_bs.py" />
+        <option value="$PROJECT_DIR$/Project4/time_bwt_search.csv" />
         <option value="$PROJECT_DIR$/Project4/time_bw.py" />
       </list>
     </option>
@@ -159,7 +156,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -173,7 +170,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.time_binary_search">
+  <component name="RunManager" selected="Python.time_bw">
     <configuration name="generate_fibonacci_string" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Genome_scale_algorithms" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -454,8 +451,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.time_binary_search" />
         <item itemvalue="Python.time_bw" />
+        <item itemvalue="Python.time_binary_search" />
         <item itemvalue="Python.search-bs" />
         <item itemvalue="Python.radix_sort" />
         <item itemvalue="Python.generate_fibonacci_string" />
@@ -489,11 +486,11 @@
     <frame x="42" y="22" width="1398" height="878" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28687316" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28687316" />
       <window_info anchor="right" id="R Packages" order="3" />
       <window_info anchor="right" id="R Graphics" order="3" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32894737" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32894737" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32894737" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -524,7 +521,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -672,19 +669,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Project4/time_bwt_search.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Project4/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-932" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project4/radix_sort.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-292">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Project4/Genome Scale algorithms - Project 4 - Maria, Mateo and Jacob.Rmd">
@@ -694,20 +681,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Project4/search_bs.py">
+    <entry file="file://$PROJECT_DIR$/Project4/radix_sort.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="48" selection-start-line="48" selection-start-column="2" selection-end-line="53" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="223">
+          <caret line="45" column="80" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="80" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Project4/search_bw.py">
+    <entry file="file://$PROJECT_DIR$/Project4/time_binary_search.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        <state>
+          <caret column="14" selection-start-column="10" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project4/search_bs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
@@ -716,20 +707,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Project4/time_binary_search.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        <state relative-caret-position="360">
+          <caret line="24" column="24" selection-start-line="24" selection-start-column="24" selection-end-line="24" selection-end-column="24" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Project4/search_bw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="64" column="24" lean-forward="true" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project4/time_bwt_search.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Project4/time_bw.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        <state relative-caret-position="364">
+          <caret line="31" column="6" selection-start-line="22" selection-start-column="4" selection-end-line="31" selection-end-column="6" />
           <folding>
-            <element signature="e#0#16#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
