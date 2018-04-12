@@ -9,11 +9,11 @@ def binary_search(pat, text, suffix_array):
     the suffix array build by the function build_array_naive
     '''
 
-    text = text + '$'
-    suffix_array = build_array_naive(text)
+    #text = text + '$'
+    #suffix_array = build_array_naive(text)
 
     m = len(pat)  # lenght of the pattern
-    n = len(text)  # length of the text
+    n = len(text + '$')  # length of the text
 
     # Starting binary search:
     l = 0  # left index
@@ -39,16 +39,20 @@ def binary_search(pat, text, suffix_array):
         else:
             l = mid + 1
 
-    if s != r:
+    if r < max(suffix_array): # dealing with the indexing in python
         zero_indexed = suffix_array[s:r]
-        #one_indexed = [x + 1 for x in zero_indexed]
-        return (zero_indexed)
-    return(suffix_array[r])
+        one_indexed = [x + 1 for x in zero_indexed]
+ 
+        return(sorted(one_indexed[::-1]))
+    else:
+        zero_indexed = suffix_array[s:r+1]
+        one_indexed = [x + 1 for x in zero_indexed]
+
+        return(sorted(one_indexed[::-1]))
 
 text = open(argv[1], 'r').read()
-text = file
 suffix_array = build_array_naive(text + '$')
 pattern = argv[2]
 
 
-print(binary_search("ssi", file))
+print(binary_search(pattern, text, suffix_array))

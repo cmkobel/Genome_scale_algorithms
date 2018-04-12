@@ -51,18 +51,21 @@ def build_o_table(suffix_array, text):
 
 def search_bw(suffix_array, text, pat, O, C):
     m = len(pat)  # lenght of the pattern
-    n = len(text)  # length of the text
+    n = len(text + '$')  # length of the text
 
     l = 0
     r = n - 1
-    i = 0
+    i = m - 1
 
     while (i >= 0 and l <= r):
 
         c = pat[i]
 
         if l - 1 < 0:  # dealing with negative indexes
-            l = C[c] + 1
+            try:
+                l = C[c] + 1 # here trying to deal with letters that are not present in the text
+            except:
+                return(None)
         else:
             l = C[c] + O[c][l - 1] + 1
 
@@ -71,13 +74,15 @@ def search_bw(suffix_array, text, pat, O, C):
         i = i - 1
 
     if i < 0 and l <= r:
-        return (suffix_array[l:r + 1])
+        zero_indexed = suffix_array[l:r + 1]
+        one_indexed = [x + 1 for x in zero_indexed]
+        return(sorted(one_indexed)) # sorting just to look exact as required
     else:
-        return (-1)
+        return(None)
 
 text = open(argv[1], 'r').read()
 suffix_array = build_array_naive(text + '$')
-O =  build_o_table(suffix_array, text)
+O =  build_o_table(suffix_array, text + '$')
 C = build_c_table(suffix_array, text)
 
 print search_bw(suffix_array, text, argv[2], O, C)
