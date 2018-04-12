@@ -17,14 +17,26 @@ Instruction of the project: https://github.com/mailund/gsa-exercises/tree/master
 
 ## Program description
 
-The program is implemented in Python and we had no unsolved issues implementing the algorithms.
-Execution of the program on command line takes the form:
+The programs are implemented in Python and we had no unsolved issues implementing the algorithms.
+Execution of the programs on command line takes the form:
 
 ```{r, engine = 'python', eval = FALSE, python.reticulate = F}
-python tandem.py [text-filename]
+python search-bs.py [text-filename] [pattern]
+python search-bw.py [text-filename] [pattern]
 ```
 
-The program outputs the number of branching and non-branching tandem repeats to the console, and the full list in a file with same basename as the input file, but with the suffix out.
+The program outputs positions where the second parameter (patern) occurs in the text from file.
+
+##Problems
+We did not have any problems regarding implementation except Radix sort. Since sorting suffixes using radix sort requieres creating a 'bucket' for each letter in alphabet and taking ASCII values of letters we could end up with potential problems. Each letter in character coresponds to a integer value called ASCII value but special scharacters could not be found there, which can cause problems when trying to sort them using radix sort. Also implementation of radix sort 
+
+
+## Evauluation
+We measured time for both, search using Burrows-Wheeler transformation and binary search and following plots are showing the results.
+```{r}
+
+```
+
 
 ## Test of correctness
 We used the test data provided in testdata.zip to test the correctness of the program.
@@ -33,11 +45,14 @@ We used the test data provided in testdata.zip to test the correctness of the pr
 
 ```{r}
 bin_search = read.csv("time_binary_search.csv", header = T)
+#bin_bwt = read.csv("time_bwt_search.csv", header = T)
+radix = read.csv("time_radix.csv", header = T)
+sorted = read.csv("time_sorted.csv", header = T)
 ggplot(data = bin_search) + 
-        geom_point(mapping = aes(y = time, x = n, color = Algorithm))
+        geom_point(mapping = aes(y = time/3*log(n), x = n))
 
-ggplot(data = bin_search) + 
-        geom_point(mapping = aes(y = time/n^2, x = n, color = Algorithm))
+ggplot(data = radix) + 
+        geom_point(mapping = aes(y = time, x = n))
 ```
 
 

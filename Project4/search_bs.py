@@ -46,25 +46,11 @@ def binary_search(pat, text):
         return(sorted(one_indexed))
 		
 
-#fileName = argv[1]
-#pattern = argv[2]
-
-#file = open("mississippi.txt", 'r').read()
-
-#print(binary_search("ssi", file))
-
-random_strings = []
-file = open('time_binary_search.csv', 'a')
-file.write("Algorithm" + "," + "time" + "," + "n"+"\n")
-text = "aaa"
-patern = "aaa"
-for i in range(3, 10000, 100):
-    start = time.time()
-    binary_search(patern, text)
-    end = time.time()
-    file.write("binary_search" + "," + str(end-start) + ","+ str(i) + "\n")
-    text = text + i*("a")
-
-file.close()
+# fileName = argv[1]
+# pattern = argv[2]
+#
+# file = open("mississippi.txt", 'r').read()
+#
+# print(binary_search("ssi", file))
 
 
