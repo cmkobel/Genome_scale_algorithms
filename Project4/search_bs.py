@@ -3,7 +3,7 @@ from sys import argv
 import time, random, string
 
 
-def binary_search(pat, text):
+def binary_search(pat, text, suffix_array):
     '''
     A suffix array based search function for a given pattern (pattern) in a given text (text) using
     the suffix array build by the function build_array_naive
@@ -45,9 +45,10 @@ def binary_search(pat, text):
         return (zero_indexed)
     return(suffix_array[r])
 
-# fileName = argv[1]
-# pattern = argv[2]
-#
-# file = open("mississippi.txt", 'r').read()
-#
-# print(binary_search("ssi", file))
+text = open(argv[1], 'r').read()
+text = file
+suffix_array = build_array_naive(text + '$')
+pattern = argv[2]
+
+
+print(binary_search("ssi", file))
