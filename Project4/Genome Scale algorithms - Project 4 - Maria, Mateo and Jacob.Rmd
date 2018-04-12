@@ -38,10 +38,20 @@ bin_search = read.csv("time_binary_search.csv", header = T)
 bwt_search = read.csv("time_bwt_search.csv", header = T)
 
 ggplot(data = bin_search) + 
-        geom_point(mapping = aes(y = time/(m*log(n)), x = n, color = scenario))
-
+        geom_point(mapping = aes(y = time/(m*log(n)), x = n, color = scenario)) + 
+        labs(x = "n", y = "Time/mlog(n)") +
+        ylim(0,2.5e-08) + 
+        xlim(0,10000) + 
+        ggtitle("Time measures for Binary search comparing two scenarios") +
+        theme_minimal()
+ 
 ggplot(data = bwt_search) + 
-        geom_point(mapping = aes(y = time/m, x = n, color = scenario))
+        geom_point(mapping = aes(y = time/m, x = n, color = scenario)) +
+        labs(x = "n", y = "Time/m") +
+        ylim(0,1.5e-07) + 
+        xlim(0,10000) + 
+        ggtitle("Time measures for BWT search comparing two scenarios") +
+        theme_minimal()
 ```
 
 

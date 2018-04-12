@@ -3,14 +3,13 @@ from sys import argv
 import time, random, string
 
 
-def binary_search(pat, text):
+def binary_search(pat, text, suffix_array):
     '''
     A suffix array based search function for a given pattern (pattern) in a given text (text) using
     the suffix array build by the function build_array_naive
     '''
 
-    text = text + '$'
-    suffix_array = build_array_naive(text)
+
 
     m = len(pat)  # lenght of the pattern
     n = len(text)  # length of the text

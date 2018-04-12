@@ -1,13 +1,16 @@
-import time
+import time,random,string
 import search_bw
-import time_binary_search
+
+
+def random_generator(size=6, chars=string.ascii_lowercase):
+    return ''.join(random.choice(chars) for x in range(size))
 
 random_strings = []
 file = open('time_bwt_search.csv', 'a')
 file.write("Algorithm" + "," + "time" + "," + "n"+ ","+"m" + ",scenario" + "\n")
 text = "aaa"
 patern = "aaa"
-for i in range(3, 1000, 10):
+for i in range(10, 10000, 10):
     # Pre-build tables
     ## Worst case - matching aaaa to aaa
     text = text + (i * ("a"))
@@ -21,8 +24,9 @@ for i in range(3, 1000, 10):
     file.write("bwt_search" + "," + str(end-start) + ","+ str(len(text)) + ","+ str(len(patern)) + ",aaa" +"\n")
 
     # Radnom strings
-    patern = time_binary_search.random_generator(size = int(i/3))
-    text = time_binary_search.random_generator(size= i)
+    patern = random_generator(size = int(i/3), chars="ACGT")
+    text = random_generator(size= i, chars="ATCG")
+    
     suffix_array = search_bw.build_array_naive(text)
     O = search_bw.build_o_table(suffix_array, text)
     C = search_bw.build_c_table(suffix_array, text)
