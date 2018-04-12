@@ -13,8 +13,8 @@ patern = "aaa"
 for i in range(10, 10000, 10):
     # Pre-build tables
     ## Worst case - matching aaaa to aaa
-    text = text + (i * ("a"))
-    patern = patern + (int(i/3) * ("a"))
+    text = random_generator(size = int(i/3), chars="AAAA")
+    patern = random_generator(size = int(i/3), chars="AAAA")
     suffix_array = search_bw.build_array_naive(text)
     O = search_bw.build_o_table(suffix_array, text)
     C = search_bw.build_c_table(suffix_array, text)
@@ -26,7 +26,7 @@ for i in range(10, 10000, 10):
     # Radnom strings
     patern = random_generator(size = int(i/3), chars="ACGT")
     text = random_generator(size= i, chars="ATCG")
-    
+
     suffix_array = search_bw.build_array_naive(text)
     O = search_bw.build_o_table(suffix_array, text)
     C = search_bw.build_c_table(suffix_array, text)

@@ -24,8 +24,8 @@ for i in range(10, 10000, 10):
     file.write("binary_search" + "," + str(end-start) + ","+ str(len(text)) + ","+ str(len(patern)) + ",random" +"\n")
 
     #Worst case - matching aaa to aaa
-    text = text + (i * ("a"))
-    patern = patern + (int(i/3) * ("a"))
+    text = random_generator(size = int(i/3), chars="AAAA")
+    patern = random_generator(size = int(i/3), chars="AAAA")
 
     text = text + '$'
     suffix_array = build_array_naive(text)

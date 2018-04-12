@@ -44,10 +44,10 @@ def binary_search(pat, text, suffix_array):
         return (zero_indexed)
     return(suffix_array[r])
 
-text = open(argv[1], 'r').read()
-text = file
-suffix_array = build_array_naive(text + '$')
-pattern = argv[2]
-
-
-print(binary_search("ssi", file))
+# text = open(argv[1], 'r').read()
+# text = file
+# suffix_array = build_array_naive(text + '$')
+# pattern = argv[2]
+#
+#
+# print(binary_search("ssi", file))
