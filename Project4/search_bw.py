@@ -75,10 +75,9 @@ def search_bw(suffix_array, text, pat, O, C):
     else:
         return (-1)
 
-# text = 'mississippi$'
-# suffix_array = build_array_naive(text)
-# O =  build_o_table(suffix_array, text)
-# C = build_c_table(suffix_array, text)
-#
-#
-# print search_bw(suffix_array, text, argv[1], O, C)
+text = open(argv[1], 'r').read()
+suffix_array = build_array_naive(text + '$')
+O =  build_o_table(suffix_array, text)
+C = build_c_table(suffix_array, text)
+
+print search_bw(suffix_array, text, argv[2], O, C)
