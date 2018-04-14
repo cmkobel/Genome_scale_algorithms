@@ -17,7 +17,7 @@ Instruction of the project: https://github.com/mailund/gsa-exercises/tree/master
 
 ## Program description
 
-The programs are implemented in Python and we had no unsolved issues implementing the algorithms.
+The programs are implemented in Python (2.7) and we had no unsolved issues implementing the algorithms.
 Execution of the programs on command line takes the form:
 
 ```{r, engine = 'python', eval = FALSE, python.reticulate = F}
@@ -25,7 +25,7 @@ python search-bs.py [text-filename] [pattern]
 python search-bw.py [text-filename] [pattern]
 ```
 
-The program outputs positions where the second parameter (patern) occurs in the text from file.
+The program outputs positions where the second parameter (patern) occurs in the text from file. The positions are sorted by index of occurence and if the pattern does not exist in the text *None* is returned.
 
 ##Problems
 We did not have any problems regarding implementation except Radix sort. Since sorting suffixes using radix sort requieres creating a 'bucket' for each letter in alphabet and taking ASCII values of letters we could end up with potential problems. Each letter in character coresponds to a integer value called ASCII value but special scharacters could not be found there, which can cause problems when trying to sort them using radix sort. Also implementation of radix sort 
@@ -43,7 +43,7 @@ ggplot(data = bin_search) +
         ylim(0,2.5e-08) + 
         xlim(0,10000) + 
         ggtitle("Time measures for Binary search comparing two scenarios") +
-        theme_minimal()
+        theme_bw()
  
 ggplot(data = bwt_search) + 
         geom_point(mapping = aes(y = time/m, x = n, color = scenario)) +
@@ -51,7 +51,7 @@ ggplot(data = bwt_search) +
         ylim(0,1.5e-07) + 
         xlim(0,10000) + 
         ggtitle("Time measures for BWT search comparing two scenarios") +
-        theme_minimal()
+        theme_bw()
 ```
 
 

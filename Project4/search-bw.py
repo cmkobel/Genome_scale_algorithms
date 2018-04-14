@@ -10,12 +10,12 @@ def build_c_table(suffix_array, text):
     # going through the suffix array and looking at the different letters.
     c_dict = {'$': 0}
 
-    #print suffix_array
     for i in range(1, len(suffix_array)):
 
         if text[suffix_array[i]] not in c_dict:
-            c_dict[text[suffix_array[i]]] = i - 1
 
+                c_dict[text[suffix_array[i]]] = i - 1
+                
     return(c_dict)
 
 def build_o_table(suffix_array, text):
@@ -80,6 +80,6 @@ def search_bw(suffix_array, text, pat, O, C):
 text = open(argv[1], 'r').read()
 suffix_array = build_array_naive(text + '$')
 O =  build_o_table(suffix_array, text + '$')
-C = build_c_table(suffix_array, text)
+C = build_c_table(suffix_array, text + '$')
 
 print search_bw(suffix_array, text, argv[2], O, C)
