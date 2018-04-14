@@ -67,11 +67,36 @@ It is possible to observe that both implementations follow the expected time com
 We used the test data provided in folder test_data to test the correctness of the program. The outputs are the same as given by previous projects.
 
 ## Time complexity of sorting (python sort and radix sort)
-
+Implementation of radix sort uses bucket for each character in alphabet and takes ASCII values in order to arrange them. 
+Using worst case scenario, text which contains only a's and patter which contains also all a's radix sort does not perform really good compared to built in python function (sorted()). Measured time in practice with worst case scenario showed that time complexity is nlog(n). On the other hand, built in function uses Timsort which is exceptionally adaptive merge sort, which is really fast in practice but in theory the same as merge sort. Time complexity of algorithm is nLog(n) (https://www.quora.com/What-is-the-time-complexity-of-the-Python-built-in-sorted-function).
 ```{r}
 
 radix = read.csv("time_radix.csv", header = T)
 sorted = read.csv("time_sorted.csv", header = T)
+radix <- radix %>%
+  mutate(method = "radix")
+sorted <- sorted %>%
+  mutate(method = "py_sorted")
+
+total <- rbind(radix,sorted)
+compare <- ggplot(data = total) + 
+        geom_point(mapping = aes(y = time, x = n, color = method)) +
+        labs(x = "n", y = "Time") +
+        xlim(0,15000) + ylim(0, 0.001) +
+        ggtitle("Time measures for \nRadix sort and py sorted") +
+        theme_bw() 
+
+nlogn <- ggplot(data = total) + 
+        geom_point(mapping = aes(y = time/(n*log(n)), x = n, color = method)) +
+        labs(x = "n", y = "Time/nlog(n)") +
+        xlim(0, 15000) +
+        ggtitle("Time measures \n for Radix sort") +
+        theme_bw() 
+
+
+
+
+grid.arrange(nlogn, compare, nrow= 2)
 
 ```
 
