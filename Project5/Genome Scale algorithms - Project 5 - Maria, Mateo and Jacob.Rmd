@@ -1,0 +1,104 @@
+---
+title: "Project 3: Genome Scale algorithms"
+author: "Maria, Mateo and Jacob"
+date: "2/20/2018"
+output:
+  pdf_document:
+  variant: markdown_github
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggpubr)
+library(tidyverse)
+library(gridExtra)
+```
+Instruction of the project: https://github.com/mailund/gsa-exercises/tree/master/Project04
+
+## Project 4 - Suffix arrays and BW-match
+
+## Program description
+
+The programs are implemented in Python (2.7) and we had no unsolved issues implementing the algorithms.
+Execution of the programs on command line takes the form:
+
+```{r, engine = 'python', eval = FALSE, python.reticulate = F}
+python search-bs.py [text-filename] [pattern]
+python search-bw.py [text-filename] [pattern]
+```
+
+The program outputs positions where the second parameter (pattern) occurs in the text file. The positions are sorted by index of occurrence and if the pattern does not exist in the text *None* is returned.
+
+## Problems
+
+We did not have any problems regarding implementation except Radix sort. Since sorting suffixes using radix sort requires creating a 'bucket' for each letter in alphabet and taking ASCII values of letters we could end up with potential problems. Each letter in character corresponds to an integer value called ASCII value but special characters could not be found there, which can cause problems when trying to sort them using radix sort.
+
+## Evaluation
+We measured time for both, search using Burrows-Wheeler transformation and binary search and following plots are showing the results. Two scenarios were tested: 
+
+1. Patterns matching the text.
+2. Random text and random pattern.
+
+```{r, echo = F, warning=F}
+bin_search = read.csv("time_binary_search.csv", header = T)
+bwt_search = read.csv("time_bwt_search.csv", header = T)
+
+ggplot(data = bin_search) + 
+        geom_point(mapping = aes(y = time/(m*log(n)), x = n, color = scenario)) + 
+        labs(x = "n", y = "Time/mlog(n)") +
+        ylim(0,2.5e-08) + 
+        xlim(0,10000) + 
+        ggtitle("Time measures for Binary search comparing two scenarios") +
+        theme_bw() -> binary_timing
+ 
+ggplot(data = bwt_search) + 
+        geom_point(mapping = aes(y = time/m, x = n, color = scenario)) +
+        labs(x = "n", y = "Time/m") +
+        ylim(0,1.5e-07) + 
+        xlim(0,10000) + 
+        ggtitle("Time measures for BWT search comparing two scenarios") +
+        theme_bw() -> bw_timing
+
+grid.arrange(binary_timing, bw_timing)
+```
+
+It is possible to observe that both implementations follow the expected time complexity. 
+
+## Test of correctness
+We used the test data provided in folder test_data to test the correctness of the program. The outputs are the same as given by previous projects.
+
+## Time complexity of sorting (python sort and radix sort)
+Implementation of radix sort uses bucket for each character in alphabet and takes ASCII values in order to arrange them. 
+Using worst case scenario, text which contains only a's and patter which contains also all a's radix sort does not perform really good compared to built in python function (sorted()). Measured time in practice with worst case scenario showed that time complexity is nlog(n). On the other hand, built in function uses Timsort which is exceptionally adaptive merge sort, which is really fast in practice but in theory the same as merge sort. Time complexity of algorithm is nLog(n) (https://www.quora.com/What-is-the-time-complexity-of-the-Python-built-in-sorted-function).
+```{r, echo = F, warning=F}
+
+radix = read.csv("time_radix.csv", header = T)
+sorted = read.csv("time_sorted.csv", header = T)
+radix <- radix %>%
+  mutate(method = "radix")
+sorted <- sorted %>%
+  mutate(method = "py_sorted")
+
+total <- rbind(radix,sorted)
+compare <- ggplot(data = total) + 
+        geom_point(mapping = aes(y = time, x = n, color = method)) +
+        labs(x = "n", y = "Time") +
+        xlim(0,15000) + ylim(0, 0.001) +
+        ggtitle("Time measures for \nRadix sort and py sorted") +
+        theme_bw() 
+
+nlogn <- ggplot(data = total) + 
+        geom_point(mapping = aes(y = time/(n*log(n)), x = n, color = method)) +
+        labs(x = "n", y = "Time/nlog(n)") +
+        xlim(0, 15000) +
+        ggtitle("Time measures \nfor Radix sort") +
+        theme_bw() 
+
+
+
+
+grid.arrange(nlogn, compare, nrow= 2)
+
+```
+
+
+
