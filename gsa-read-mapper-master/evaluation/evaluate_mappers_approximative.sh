@@ -7,7 +7,8 @@
 export PATH=../mappers_src:$PATH
 
 # list of read-mappers to evaluate
-mappers="bwa ac_readmapper bw_readmapper"
+#mappers="bwa ac_readmapper bw_readmapper my_mapper"
+mappers="bwa my_mapper"
 
 # file name for report
 report_file=../evaluation-report-approximative.txt

@@ -10,7 +10,7 @@ export PATH=../mappers_src:$PATH
 ref_mapper=ac_readmapper
 
 # list of read-mappers to evaluate
-mappers="bw_readmapper"
+mappers="bw_readmapper my_mapper"
 
 # file name for report
 report_file=../test-report.txt
