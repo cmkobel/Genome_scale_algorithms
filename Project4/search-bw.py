@@ -1,7 +1,6 @@
 from suffix_build import build_array_naive
 from sys import argv
 
-
 def build_c_table(suffix_array, text):
     '''
     Number of symbols in x[0...n-2] that are lexicographic smaller than a, i.e. how many suffixes of x (excluding $)
@@ -11,14 +10,13 @@ def build_c_table(suffix_array, text):
     # going through the suffix array and looking at the different letters.
     c_dict = {'$': 0}
 
-    #print suffix_array
     for i in range(1, len(suffix_array)):
 
         if text[suffix_array[i]] not in c_dict:
-            c_dict[text[suffix_array[i]]] = i - 1
 
-    return c_dict
-
+                c_dict[text[suffix_array[i]]] = i - 1
+                
+    return(c_dict)
 
 def build_o_table(suffix_array, text):
     '''
@@ -39,30 +37,32 @@ def build_o_table(suffix_array, text):
         if i not in O_dict:
             O_dict[i] = [0] * len(text)
 
-    # Looping thorugh b string and updating the list of each char
+    # Looping through b string and updating the list of each char
     for i in range(len(b_string)):
         for key in O_dict:
             O_dict[key][i] = O_dict[key][i - 1]
 
         O_dict[b_string[i]][i] += 1
 
-    return (O_dict)
-
+    return(O_dict)
 
 def search_bw(suffix_array, text, pat, O, C):
     m = len(pat)  # lenght of the pattern
-    n = len(text)  # length of the text
+    n = len(text + '$')  # length of the text
 
     l = 0
     r = n - 1
-    i = 0
+    i = m - 1
 
     while (i >= 0 and l <= r):
 
         c = pat[i]
 
         if l - 1 < 0:  # dealing with negative indexes
-            l = C[c] + 1
+            try:
+                l = C[c] + 1 # here trying to deal with letters that are not present in the text
+            except:
+                return(None)
         else:
             l = C[c] + O[c][l - 1] + 1
 
@@ -71,13 +71,15 @@ def search_bw(suffix_array, text, pat, O, C):
         i = i - 1
 
     if i < 0 and l <= r:
-        return (suffix_array[l:r + 1])
+        zero_indexed = suffix_array[l:r + 1]
+        one_indexed = [x + 1 for x in zero_indexed]
+        return(sorted(one_indexed)) # sorting just to look exact as required
     else:
-        return (-1)
+        return(None)
 
-# text = open(argv[1], 'r').read()
-# suffix_array = build_array_naive(text + '$')
-# O =  build_o_table(suffix_array, text)
-# C = build_c_table(suffix_array, text)
-#
-# print search_bw(suffix_array, text, argv[2], O, C)
+text = open(argv[1], 'r').read()
+suffix_array = build_array_naive(text + '$')
+O =  build_o_table(suffix_array, text + '$')
+C = build_c_table(suffix_array, text + '$')
+
+print search_bw(suffix_array, text, argv[2], O, C)
