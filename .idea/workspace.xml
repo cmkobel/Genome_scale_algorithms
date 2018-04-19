@@ -2,11 +2,271 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc0dfe88-d749-4c44-ad7d-54f906e9c1a1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Project5/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/border_array_search.py" afterPath="$PROJECT_DIR$/Project5/border_array_search.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Genome_scale_algorithms.iml" afterPath="$PROJECT_DIR$/.idea/Genome_scale_algorithms.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/data/gorGor3-small-noN.fa" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/data/gorGor3-small-noN.fa.bwt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/data/gorGor3-small-noN.fa.pac" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/data/gorGor3-small-noN.fa.sa" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-approximative.txt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-exact.txt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/.Rproj.user/B0AD098A/sources/s-FDF34BAA/lock_file" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/.Rproj.user/shared/notebooks/patch-chunk-names" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/images/successful-evaluation-approximative.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/images/successful-evaluation-exact.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/images/successful-test.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/ac_readmapper.xcodeproj/project.xcworkspace/xcuserdata/mailund.xcuserdatad/UserInterfaceState.xcuserstate" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/bw_readmapper.xcodeproj/project.xcworkspace/xcuserdata/mailund.xcuserdatad/UserInterfaceState.xcuserstate" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/match_readmapper.xcodeproj/project.xcworkspace/xcuserdata/mailund.xcuserdatad/UserInterfaceState.xcuserstate" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/test_tools.xcodeproj/project.xcworkspace/xcuserdata/mailund.xcuserdatad/UserInterfaceState.xcuserstate" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/trie.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/.imdone/config.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/data/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/data/gorGor3-small-noN.fa.amb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/data/gorGor3-small-noN.fa.ann" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/data/randomize-N.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/data/sim-reads-d2-small.fq" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/data/sim-reads-d2-tiny.fq" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/data/sim-reads-exact-small.fq" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/data/sim-reads-exact-tiny.fq" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/data/simulate-fastq.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-approximative.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-exact.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/.Rproj.user/B0AD098A/sources/prop/8364DBDA" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/.Rproj.user/B0AD098A/sources/prop/INDEX" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/.Rproj.user/B0AD098A/sources/s-FDF34BAA/38691DB2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/.Rproj.user/B0AD098A/sources/s-FDF34BAA/38691DB2-contents" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/analyse-report.R" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/bw_readmapper.preprocess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/bwa.preprocess" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/bwa.run" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/evaluate_mappers_approximative.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/evaluate_mappers_exact.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_approximative.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_exact.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/ac_readmap.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/ac_readmapper.xcodeproj/project.pbxproj" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/ac_readmapper.xcodeproj/project.xcworkspace/contents.xcworkspacedata" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/ac_readmapper.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/ac_readmapper.xcodeproj/project.xcworkspace/xcuserdata/mailund.xcuserdatad/WorkspaceSettings.xcsettings" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/ac_readmapper.xcodeproj/xcuserdata/mailund.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/ac_readmapper.xcodeproj/xcuserdata/mailund.xcuserdatad/xcschemes/ac_readmapper.xcscheme" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/ac_readmapper.xcodeproj/xcuserdata/mailund.xcuserdatad/xcschemes/xcschememanagement.plist" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/aho_corasick.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/aho_corasick.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/cigar.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/cigar.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/edit_distance_generator.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/edit_distance_generator.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/fasta.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/fasta.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/fastq.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/fastq.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/match.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/match.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/options.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/options.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/pair_stack.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/pair_stack.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/queue.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/queue.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/sam.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/sam.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/size_vector.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/size_vector.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/string_vector.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/string_vector.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/string_vector_vector.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/string_vector_vector.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/strings.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/strings.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/trie.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/ac_readmapper_src/trie.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/bw_readmap.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/bw_readmapper.xcodeproj/project.pbxproj" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/bw_readmapper.xcodeproj/project.xcworkspace/contents.xcworkspacedata" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/bw_readmapper.xcodeproj/xcuserdata/mailund.xcuserdatad/xcschemes/bw_readmapper.xcscheme" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/bw_readmapper.xcodeproj/xcuserdata/mailund.xcuserdatad/xcschemes/xcschememanagement.plist" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/cigar.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/cigar.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/fasta.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/fasta.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/fastq.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/fastq.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/options.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/options.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/pair_stack.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/pair_stack.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/sam.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/sam.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/search.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/search.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/size_vector.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/size_vector.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/string_vector.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/string_vector.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/strings.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/strings.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/suffix_array.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/suffix_array.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/suffix_array_records.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bw_readmapper_src/suffix_array_records.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/.travis.yml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/COPYING" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/ChangeLog" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/NEWS.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/QSufSort.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/QSufSort.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/README-alt.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bamlite.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bamlite.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bntseq.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bntseq.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwa.1" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwa.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwa.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwakit/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwakit/bwa-postalt.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwakit/run-HLA" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwakit/run-bwamem" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwakit/run-gen-ref" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwakit/typeHLA-selctg.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwakit/typeHLA.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwakit/typeHLA.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwamem.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwamem.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwamem_extra.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwamem_pair.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwape.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwase.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwase.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwaseqio.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwashm.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwt.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwt.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwt_gen.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwt_lite.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwt_lite.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwtaln.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwtaln.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwtgap.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwtgap.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwtindex.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwtsw2.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwtsw2_aux.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwtsw2_chain.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwtsw2_core.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwtsw2_main.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/bwtsw2_pair.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/example.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/fastmap.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/is.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/kbtree.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/khash.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/kopen.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/kseq.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/ksort.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/kstring.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/kstring.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/ksw.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/ksw.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/kthread.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/kvec.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/main.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/malloc_wrap.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/malloc_wrap.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/maxk.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/pemerge.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/qualfa2fq.pl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/rle.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/rle.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/rope.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/rope.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/utils.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/utils.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/bwa_src/xa2multi.pl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/cigar.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/cigar.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/edit_distance_generator.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/edit_distance_generator.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/fasta.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/fasta.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/fastq.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/fastq.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/match.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/match.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/match_readmap.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/match_readmapper.xcodeproj/project.pbxproj" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/match_readmapper.xcodeproj/project.xcworkspace/contents.xcworkspacedata" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/match_readmapper.xcodeproj/xcuserdata/mailund.xcuserdatad/xcschemes/xcschememanagement.plist" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/options.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/options.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/pair_stack.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/pair_stack.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/queue.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/queue.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/sam.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/sam.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/size_vector.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/size_vector.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/string_vector.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/string_vector.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/strings.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/strings.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/suffix_array.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/suffix_array.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/trie.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/trie.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/.gitignore" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/Makefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/ac_search.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/aho_corasick.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/aho_corasick.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/cigar.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/cigar.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/display_match.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/display_trie.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/edit_cloud.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/edit_distance_generator.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/edit_distance_generator.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/fasta.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/fasta.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/options.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/options.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/queue.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/queue.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/size_vector.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/size_vector.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/string_vector.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/string_vector.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/string_vector_vector.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/string_vector_vector.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/strings.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/strings.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/test_tools.xcodeproj/project.pbxproj" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/test_tools.xcodeproj/project.xcworkspace/contents.xcworkspacedata" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/test_tools.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/test_tools.xcodeproj/project.xcworkspace/xcuserdata/mailund.xcuserdatad/WorkspaceSettings.xcsettings" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/test_tools.xcodeproj/xcuserdata/mailund.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/test_tools.xcodeproj/xcuserdata/mailund.xcuserdatad/xcschemes/display_match.xcscheme" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/test_tools.xcodeproj/xcuserdata/mailund.xcuserdatad/xcschemes/xcschememanagement.plist" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/trie.c" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/test_tools/trie.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project5/border_array_search.py" afterPath="$PROJECT_DIR$/Project5/border_array_search.py" />
     </list>
     <ignored path="Genome_scale_algorithms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -16,6 +276,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Genome_scale_algorithms$border_array_search.coverage" NAME="border_array_search Coverage Results" MODIFIED="1524118994337" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Project5" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -29,8 +292,8 @@
       <file leaf-file-name="border_array_search.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Project5/border_array_search.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="342">
+              <caret line="30" column="34" lean-forward="false" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -73,6 +336,8 @@
         <option value="$PROJECT_DIR$/Project4/search_bs.py" />
         <option value="$PROJECT_DIR$/Project4/time_bwt_search.csv" />
         <option value="$PROJECT_DIR$/Project4/search_bw.py" />
+        <option value="$PROJECT_DIR$/Project5/border_array_search.py" />
+        <option value="$PROJECT_DIR$/Project5/build_cigar_string.py" />
       </list>
     </option>
   </component>
@@ -103,7 +368,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -133,18 +397,132 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Course" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Group 1" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.eslint.eslintPackage" value="" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Project5" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.DS_Store</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Project4/.DS_Store</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Project5/parsers.py</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -461,6 +839,14 @@
       <option name="presentableId" value="Default" />
       <updated>1524118741073</updated>
     </task>
+    <task id="LOCAL-00001" summary="I have put border array search in wrong folder">
+      <created>1524118840066</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1524118840066</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -487,24 +873,24 @@
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2498618" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25262576" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32903227" sideWeight="0.50193477" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32903227" sideWeight="0.49806523" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.49806523" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.49585405" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +909,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Radix sort with linear Time proof" />
-    <option name="LAST_COMMIT_MESSAGE" value="Radix sort with linear Time proof" />
+    <MESSAGE value="I have put border array search in wrong folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="I have put border array search in wrong folder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -532,13 +919,18 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Project5/border_array_search.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Project4/time_binary_search.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -546,9 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="26" column="58" lean-forward="false" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -556,7 +945,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
           <caret line="45" column="80" lean-forward="false" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="80" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -566,9 +954,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -583,9 +968,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -714,9 +1096,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -725,9 +1104,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="26" column="58" lean-forward="false" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -735,14 +1111,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="45" column="80" lean-forward="false" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project5/build_cigar_string.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="8" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Project5/border_array_search.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="342">
+          <caret line="30" column="34" lean-forward="false" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
           <folding />
         </state>
       </provider>

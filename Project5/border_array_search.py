@@ -29,7 +29,11 @@ def ba_search(pattern, sequence):
     for i in range(0, len(ba)):
         if ba[i] == m:
             index = i - m + 1 - (m+1) #or i-2m
-            print("ba_search: Report match on: ", index)
+            print("ba_search: Report match on(1 indexed): ", index + 1)
             cnt = cnt + 1
 
     return cnt
+
+text = "adsadasf"
+patern = "da"
+ba_search(patern, text)
