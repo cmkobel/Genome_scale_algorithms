@@ -7,20 +7,20 @@
 export PATH=../mappers_src:$PATH
 
 # The mapper we use as the goal to hit
-ref_mapper=ac_readmapper
+ref_mapper=match_readmapper
 
 # list of read-mappers to evaluate
-mappers="bw_readmapper my_mapper"
+mappers="ac_readmapper bw_readmapper my_mapper"
 
 # file name for report
 report_file=../test-report.txt
 log_file=../test.log
 
 # max edit distance to explore
-d=1
+d=0
 
 # Reference genome
-reference=../data/gorGor3-small-noN_tiny.fa
+reference=../data/gorGor3-small-noN.fa
 
 # Reads
 reads=../data/sim-reads-d2-tiny.fq
@@ -39,7 +39,6 @@ function failure() {
 	err_msg=$1
 	echo "$(tput setaf 1)$(tput bold)↪$(tput sgr0) " $err_msg
 	echo
-	exit 1
 }
 function failure_tick() {
 	err_msg=$1
@@ -53,13 +52,17 @@ if [ -e $reference ]; then
 	success
 else
 	failure_tick "Could not find the reference genome file. "
+	exit 1
 fi
 printf "Testing that the reads file $(tput setaf 4)$(tput bold)${reads}$(tput sgr0) exists "
 if [ -e $reads ]; then
 	success
 else
 	failure_tick "Could not find the reads file. "
+	exit 1
 fi
+
+
 
 ## Run evaluation of all mappers...
 if [ -e $report_file ]; then

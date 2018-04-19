@@ -7,21 +7,21 @@
 export PATH=../mappers_src:$PATH
 
 # list of read-mappers to evaluate
-#mappers="bwa match_readmapper ac_readmapper bw_readmapper my_mapper"
+#mappers="bwa ac_readmapper bw_readmapper my_mapper"
 mappers="bwa my_mapper"
 
 # file name for report
-report_file=../evaluation-report-exact.txt
-log_file=../evaluation-exact.log
+report_file=../evaluation-report-approximative.txt
+log_file=../evaluation-approximative.log
 
 # max edit distance to explore
-d=0
+d=1
 
 # number of time measurements to do
 N=5
 
 # Reference genome
-reference=../data/gorGor3-small-noN_tiny.fa
+reference=../data/gorGor3-small-noN.fa
 
 # Reads
 reads=../data/sim-reads-d2-tiny.fq
