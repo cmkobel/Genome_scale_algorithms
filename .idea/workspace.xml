@@ -2,30 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc0dfe88-d749-4c44-ad7d-54f906e9c1a1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/binary_search_map_src/SamRow.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/border_map_src/Makefile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/border_map_src/SamRow.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/border_map_src/parsers.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src/Makefile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src/SamRow.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src/mybw_mapper" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src/parsers.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/#my_mapper.preprocess#" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/.#my_mapper.preprocess" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/search-bw-exact.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/test.sam" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/my_mapper.preprocess" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src/my_mapper.preprocess" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/Makefile" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/binary_search_map_src/Makefile" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/SamRow.py" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/SamRow.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/border_array_search.py" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/border_map_src/border_map" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/my_mapper.preprocess" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/mybw_mapper.preprocess" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/parsers.py" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/binary_search_map_src/parsers.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/search-bs-exact.py" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/binary_search_map_src/binary_search_map" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src/my_mapper.preprocess" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src/mybw_mapper.preprocess" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-approximative.txt.png" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-approximative.txt.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-exact.txt.png" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-exact.txt.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-approximative.txt" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-approximative.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-exact.txt" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-exact.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/evaluate_mappers_approximative.sh" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/evaluate_mappers_approximative.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/evaluate_mappers_exact.sh" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/evaluate_mappers_exact.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_approximative.sh" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_approximative.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_exact.sh" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_exact.sh" />
     </list>
@@ -50,38 +33,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SamRow.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/SamRow.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="51" lean-forward="false" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="test_mappers_approximative.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_approximative.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+              <caret line="12" column="53" lean-forward="false" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="border_map.sam" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/border_map.sam">
+      <file leaf-file-name="evaluate_mappers_approximative.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/evaluate_mappers_approximative.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="-36">
+              <caret line="10" column="79" lean-forward="false" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="79" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bw_readmapper.sam" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/bw_readmapper.sam">
+      <file leaf-file-name="evaluate_mappers_exact.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/evaluate_mappers_exact.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_mappers_exact.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_exact.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="12" column="53" lean-forward="false" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mybw_mapper.preprocess" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src/mybw_mapper.preprocess">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -93,7 +86,7 @@
       <file leaf-file-name="border_map" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/border_map_src/border_map">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="281">
               <caret line="34" column="34" lean-forward="false" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
               <folding>
                 <element signature="e#22#42#0" expanded="true" />
@@ -102,30 +95,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_mappers_exact.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_exact.sh">
+      <file leaf-file-name="binary_search_map" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/binary_search_map_src/binary_search_map">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+            <state relative-caret-position="461">
+              <caret line="75" column="32" lean-forward="false" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mybw_mapper.sam" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/mybw_mapper.sam">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mybw_mapper" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mybw_mapper" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src/mybw_mapper">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
+            <state relative-caret-position="828">
               <caret line="49" column="37" lean-forward="false" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
               <folding>
                 <element signature="e#22#42#0" expanded="true" />
@@ -191,15 +174,15 @@
         <option value="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/my_mapper.sam" />
         <option value="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper_src/my_mapper" />
         <option value="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/binary_search_map" />
-        <option value="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/evaluate_mappers_approximative.sh" />
         <option value="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/binary_search_map_src/binary_search_map" />
         <option value="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/mybw_mapper.sam" />
         <option value="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src/mybw_mapper" />
-        <option value="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/evaluate_mappers_exact.sh" />
         <option value="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/SamRow.py" />
         <option value="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/border_map_src/border_map" />
-        <option value="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_exact.sh" />
+        <option value="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/evaluate_mappers_exact.sh" />
+        <option value="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/evaluate_mappers_approximative.sh" />
         <option value="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_approximative.sh" />
+        <option value="$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_exact.sh" />
       </list>
     </option>
   </component>
@@ -230,7 +213,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -272,28 +254,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mappers_src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Genome_scale_algorithms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Genome_scale_algorithms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gsa-read-mapper-master" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mappers_src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mybw_mapper_src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -362,6 +322,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="Course" />
     </panes>
   </component>
@@ -373,129 +334,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src" />
       <recent name="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src" />
       <recent name="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/binary_search_map_src" />
       <recent name="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/border_map_src" />
       <recent name="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper_border" />
-      <recent name="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper_bs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Project5" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.DS_Store</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/my_mapper.preprocess</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/my_mapper.preprocess~</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/search-bw-exact.py</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/search-bw-exact.py~</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -847,7 +694,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524304081220</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Made 3 different mappers for exact. binary search, border array and bw_search. Each one in its folder. bw still does not work but binary search and border shows the same results as Mailunds bw_search">
+      <created>1524314274450</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1524314274450</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -874,25 +728,25 @@
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27086788" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.50193477" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.49806523" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.49806523" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.49585405" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33655915" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26755112" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33655915" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.49585405" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -934,7 +788,8 @@
     <MESSAGE value="AFter running and compiling test and evaluation" />
     <MESSAGE value="starting with our mapper" />
     <MESSAGE value="PRoduced first sam file" />
-    <option name="LAST_COMMIT_MESSAGE" value="PRoduced first sam file" />
+    <MESSAGE value="Made 3 different mappers for exact. binary search, border array and bw_search. Each one in its folder. bw still does not work but binary search and border shows the same results as Mailunds bw_search" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made 3 different mappers for exact. binary search, border array and bw_search. Each one in its folder. bw still does not work but binary search and border shows the same results as Mailunds bw_search" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -943,25 +798,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-exact.txt.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-exact.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/bwa.preprocess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/images/successful-evaluation-approximative.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -971,9 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -986,23 +819,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2016">
           <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper_src/my_mapper.sam">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper_src/my_mapper.sam" />
     <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/match_readmapper_src/Makefile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-58">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1010,7 +834,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1018,7 +841,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1026,87 +848,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper_src/search-bs-exact.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="72" column="41" lean-forward="false" selection-start-line="72" selection-start-column="41" selection-end-line="72" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper_src/border_array_search.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="55" column="41" lean-forward="false" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper_src/my_mapper_src.sam">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="47" lean-forward="true" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper_src/search-bs-exact.py" />
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper_src/border_array_search.py" />
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper_src/my_mapper_src.sam" />
     <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src/SamRow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="15" column="26" lean-forward="true" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/my_mapper.sam">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-562">
-          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/my_mapper_src.sam">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/binary_search_map_src/my_mapper.preprocess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/border_map_src/my_mapper.preprocess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/my_mapper.sam" />
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper" />
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/my_mapper_src.sam" />
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/binary_search_map_src/my_mapper.preprocess" />
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/border_map_src/my_mapper.preprocess" />
     <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/border_map_src/Makefile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1114,34 +877,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src/my_mapper.preprocess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/bw_mapper_src.sam">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/ac_readmapper.sam">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/bw_mapper_src.sam" />
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/ac_readmapper.sam" />
     <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/README.md">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1152,7 +892,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="342">
             <caret line="19" column="40" lean-forward="true" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -1162,7 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1170,7 +908,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1026">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1178,7 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1186,43 +922,55 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/parsers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/mybw_mapper_src.sam">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/binary_search_map_src.sam">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/parsers.py" />
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/mybw_mapper_src.sam" />
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/binary_search_map_src.sam" />
     <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/border_map">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-620">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/border_map_src.sam">
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/border_map_src.sam" />
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/binary_search_map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-890">
+          <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/bwa.sam" />
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/bw_readmapper.preprocess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/SamRow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="51" lean-forward="false" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/mybw_mapper.sam" />
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src/mybw_mapper">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="49" column="37" lean-forward="false" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
+          <folding>
+            <element signature="e#22#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src/my_mapper.preprocess" />
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src/mybw_mapper.preprocess">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1230,50 +978,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/binary_search_map">
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/border_map.sam">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-890">
-          <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+        <state relative-caret-position="-26701">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/binary_search_map_src/binary_search_map">
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/bw_readmapper.sam">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="75" column="32" lean-forward="false" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/bwa.sam">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="109" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/evaluate_mappers_exact.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="42" lean-forward="true" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/evaluate_mappers_approximative.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/bw_readmapper.preprocess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="-24163">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1286,33 +1002,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/SamRow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="51" lean-forward="false" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/border_map.sam">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/bw_readmapper.sam">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/border_map_src/border_map">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
+        <state relative-caret-position="281">
           <caret line="34" column="34" lean-forward="false" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
           <folding>
             <element signature="e#22#42#0" expanded="true" />
@@ -1320,23 +1012,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_approximative.sh">
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/binary_search_map_src/binary_search_map">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        <state relative-caret-position="461">
+          <caret line="75" column="32" lean-forward="false" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_exact.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="9" lean-forward="false" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/mybw_mapper.sam">
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-exact.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1344,13 +1028,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/mybw_mapper_src/mybw_mapper">
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-approximative.txt.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_approximative.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="49" column="37" lean-forward="false" selection-start-line="49" selection-start-column="37" selection-end-line="49" selection-end-column="37" />
-          <folding>
-            <element signature="e#22#42#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="216">
+          <caret line="12" column="53" lean-forward="false" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_exact.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="12" column="53" lean-forward="false" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/evaluate_mappers_exact.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/evaluate_mappers_approximative.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="10" column="79" lean-forward="false" selection-start-line="10" selection-start-column="68" selection-end-line="10" selection-end-column="79" />
+          <folding />
         </state>
       </provider>
     </entry>
