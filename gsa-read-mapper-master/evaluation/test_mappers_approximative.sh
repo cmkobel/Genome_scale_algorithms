@@ -7,10 +7,10 @@
 export PATH=../mappers_src:$PATH
 
 # The mapper we use as the goal to hit
-ref_mapper=ac_readmapper
+ref_mapper=bw_readmapper
 
 # list of read-mappers to evaluate
-mappers="bw_readmapper my_mapper"
+mappers="border_map binary_search_map mybw_mapper"
 
 # file name for report
 report_file=../test-report.txt
@@ -181,7 +181,7 @@ for mapper in $mappers; do
 		success
 	else
 		failure "$(tput bold)${mapper}$(tput sgr0) differs from $(tput setaf 4)$(tput bold)${ref_mapper}$(tput sgr0)"
-		exit 1
+		#exit 1
 	fi
 	printf "   • DONE "
 	success

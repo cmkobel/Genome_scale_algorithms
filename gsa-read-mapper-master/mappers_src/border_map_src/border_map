@@ -1,0 +1,59 @@
+#!/usr/bin/env python
+from sys import argv
+from SamRow import SamRow
+from parsers import fasta_parser, fastq_parser, from_strings_to_cigar
+
+def compute_border_array(input):
+    n = len(input)
+    ba = []
+
+    ba.append(0)
+    for i in range(1, n):
+        b = ba[i-1]
+        while b > 0 and input[i] != input[b]:
+            b = ba[b-1]
+
+        if input[i] == input[b]:
+            ba.append(b+1)
+        else:
+            ba.append(0)
+
+    return ba
+
+
+def ba_search(pattern, sequence):
+    n = len(sequence)
+    m = len(pattern)
+    ba = compute_border_array(pattern+"$"+sequence)
+
+    cnt = 0
+    b = 0
+    matches = []
+    for i in range(0, len(ba)):
+        if ba[i] == m:
+            index = i - m + 1 - (m+1) #or i-2m
+            matches.append(index+1)
+            cnt = cnt + 1
+
+    return matches
+
+
+nameOfFile = argv[0] #not used
+d_argument = argv[1]
+d_argument_param = argv[2]
+dictFasta = fasta_parser(argv[3])
+dictFastq = fastq_parser(argv[4])
+refName = dictFasta.keys()[0]
+
+text = dictFasta[refName]
+keys = dictFastq.keys()
+
+
+for key in keys:
+    matches = ba_search(dictFastq[key][0], text)
+    for match in matches:
+        if match != []:
+            # TODO: PRODUCE ACTUAL CIGAR!
+            samRow = SamRow(refName, key, match, str(len(dictFastq[key][0])) + "M", dictFastq[key][0], dictFastq[key][1])
+            samRow.writeSamRow("border_map.sam")
+

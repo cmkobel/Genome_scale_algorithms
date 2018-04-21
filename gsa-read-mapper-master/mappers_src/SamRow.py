@@ -18,4 +18,4 @@ class SamRow:
 
     def writeSamRow(self, fileName):
         file_object = open(fileName, "a+")
-        file_object.write(str(self.readName) + "\t0\t" + str(self.refName) +"\t"+str(self.position)+ "\t0\t" + self.cigar + " *\t0\t0\t" +str(self.read) + " " + str(("~")*len(self.read))+ "\n")
+        file_object.write(str(self.readName).strip() + "\t0\t" + str(self.refName).strip() +"\t"+str(self.position)+ "\t0\t" + self.cigar + "\t*\t0\t0\t" +str(self.read) + "\t" + str(self.snakes)+ "\n")

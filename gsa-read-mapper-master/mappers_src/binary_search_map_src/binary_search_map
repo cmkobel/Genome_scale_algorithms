@@ -54,9 +54,12 @@ def binary_search(pat, text, suffix_array):
 
         return(sorted(one_indexed[::-1]))
 
-#text = open(argv[1], 'r').read()
-dictFasta = fasta_parser(argv[1])
-dictFastq = fastq_parser(argv[2])
+
+nameOfFile = argv[0] #not used
+d_argument = argv[1]
+d_argument_param = argv[2]
+dictFasta = fasta_parser(argv[3])
+dictFastq = fastq_parser(argv[4])
 refName = dictFasta.keys()[0]
 
 text = dictFasta[refName]
@@ -69,6 +72,5 @@ for key in keys:
     for match in matches:
         if match != []:
             # TODO: PRODUCE ACTUAL CIGAR!
-
             samRow = SamRow(refName, key, match, str(len(dictFastq[key][0])) + "M", dictFastq[key][0], dictFastq[key][1])
-            samRow.writeSamRow("my_mapper.sam")
+            samRow.writeSamRow("binary_search_map.sam")
