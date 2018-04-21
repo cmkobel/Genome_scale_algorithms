@@ -88,13 +88,12 @@ def build_o_table(suffix_array, text):
 
 
 text = fasta_parser(argv[1])
-text = text[text.keys(0)]
+text = text[' chr1']
 
 suffix_array = build_array_naive(text + '$')
 O =  build_o_table(suffix_array, text + '$')
 C = build_c_table(suffix_array, text + '$')
 
 # Saving the tables
-dd.io.save('suffix_array.h5', suffix_array, compression='blosc')
 dd.io.save('O_table.h5', O, compression='blosc')
 dd.io.save('C_table.h5', C, compression='blosc')
