@@ -2,6 +2,7 @@
 from suffix_build import build_array_naive
 from sys import argv
 from collections import OrderedDict
+import deepdish as dd
 
 def fasta_parser(filename):
     file = open(filename, 'r').read() 
@@ -112,22 +113,29 @@ def search_bw(suffix_array, text, pat, O, C):
     else:
         return(None)
 
-
-
-text = fasta_parser("/Users/PM/Dropbox/Genome_scale_algorithms/Genome_scale_algorithms/gsa-read-mapper-master/data/gorGor3-small-noN_tiny.fa")
-# text = text[' chr1']
-
-fastq_reads = fastq_parser("/Users/PM/Dropbox/Genome_scale_algorithms/Genome_scale_algorithms/gsa-read-mapper-master/data/sim-reads-exact-tiny.fq")
-
-
 # suffix_array = build_array_naive(text + '$')
 # O =  build_o_table(suffix_array, text + '$')
 # C = build_c_table(suffix_array, text + '$')
 
-
 # Reading the preprocessed files:
+O_table = dd.io.load('O_table.h5')
+C_table = dd.io.load('C_table.h5')
+suffix_array = dd.io.load('suffix_array.h5')
 
+# Reading data:
+dictFasta = fasta_parser(argv[1])
+dictFastq = fastq_parser(argv[2])
+refName = dictFasta.keys()[0]
 
-for readname, seq in fastq_reads.items():
-    print readname
-# print search_bw(suffix_array, text, fastq_reads, O, C)
+text = dictFasta[refName]
+keys = dictFastq.keys()
+
+for key in keys:
+    matches = search_bw(suffix_array, text, dictFastq[key][0], O_table, C_table)
+    for match in matches:
+        if match != []:
+            # TODO: PRODUCE ACTUAL CIGAR!                                                         
+
+            samRow = SamRow(refName, key, match, str(len(dictFastq[key][0])) + "M", dictFastq[key\
+][0], dictFastq[key][1])
+            samRow.writeSamRow("my_mapper.sam")
