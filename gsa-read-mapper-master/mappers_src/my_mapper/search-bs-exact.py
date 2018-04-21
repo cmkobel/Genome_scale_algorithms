@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 from sys import argv
-import SamRow
-from parsers import fasta_parser, fastq_parser
+from SamRow import SamRow
+from parsers import fasta_parser, fastq_parser, from_strings_to_cigar
 
 # Constructing the array in the naive way: (On * n log n)
 def build_array_naive(string):
@@ -57,14 +57,18 @@ def binary_search(pat, text, suffix_array):
 #text = open(argv[1], 'r').read()
 dictFasta = fasta_parser(argv[1])
 dictFastq = fastq_parser(argv[2])
-refName = dictFasta.keys(0)
-print dictFasta
+refName = dictFasta.keys()[0]
 
-# for read in dictFastq:
-#
-# suffix_array = build_array_naive(dictFasta['chr1'] + '$')
-# matches = binary_search(pattern, text, suffix_array)
-#
-# for match in matches:
-#     samRow = SamRow()
-#     samRow.writeSamRow()
+text = dictFasta[refName]
+keys = dictFastq.keys()
+
+suffix_array = build_array_naive(text + '$')
+
+for key in keys:
+    matches = binary_search(dictFastq[key][0], text, suffix_array)
+    for match in matches:
+        if match != []:
+            # TODO: PRODUCE ACTUAL CIGAR!
+
+            samRow = SamRow(refName, key, match, str(len(dictFastq[key][0])) + "M", dictFastq[key][0], dictFastq[key][1])
+            samRow.writeSamRow("my_mapper.sam")

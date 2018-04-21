@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 
 class SamRow:
     refName = ""
@@ -8,7 +8,7 @@ class SamRow:
     read = ""
     snakes = ""
 
-    def SamRow(self, refName, readName, position, cigar, read, snakes):
+    def __init__(self, refName, readName, position, cigar, read, snakes):
         self.read = read
         self.readName = readName
         self.snakes = snakes
@@ -18,4 +18,4 @@ class SamRow:
 
     def writeSamRow(self, fileName):
         file_object = open(fileName, "a+")
-        file_object.write(str(self.readName) + "\t" + str(0) + "\t" + str(self.refName) +"\t"+str(self.position)+ "\t0" + self.cigar + " *\t0\t0\t" +str(self.read) + " " + str(("~")*len(self.read)))
+        file_object.write(str(self.readName) + "\t0\t" + str(self.refName) +"\t"+str(self.position)+ "\t0\t" + self.cigar + " *\t0\t0\t" +str(self.read) + " " + str(("~")*len(self.read))+ "\n")

@@ -1,11 +1,7 @@
 #!/usr/bin/env python
+from suffix_build import build_array_naive
 from sys import argv
 from collections import OrderedDict
-
-def build_array_naive(string):
-	#string = string.strip('\n')
-	zero_index = sorted(range(len(string)), key=lambda i: string[i:]) # sorting suffixes by alphabethic order
-	return zero_index
 
 def fasta_parser(filename):
     file = open(filename, 'r').read() 
@@ -85,10 +81,53 @@ def build_o_table(suffix_array, text):
 
     return(O_dict)
 
+def search_bw(suffix_array, text, pat, O, C):
+    m = len(pat)  # lenght of the pattern
+    n = len(text + '$')  # length of the text
 
-text = fasta_parser(argv[1])
-text = text[' chr1']
+    l = 0
+    r = n - 1
+    i = m - 1
 
-suffix_array = build_array_naive(text + '$')
-O =  build_o_table(suffix_array, text + '$')
-C = build_c_table(suffix_array, text + '$')
+    while (i >= 0 and l <= r):
+
+        c = pat[i]
+
+        if l - 1 < 0:  # dealing with negative indexes
+            try:
+                l = C[c] + 1 # here trying to deal with letters that are not present in the text
+            except:
+                return(None)
+        else:
+            l = C[c] + O[c][l - 1] + 1
+
+        r = C[c] + O[c][r]
+
+        i = i - 1
+
+    if i < 0 and l <= r:
+        zero_indexed = suffix_array[l:r + 1]
+        one_indexed = [x + 1 for x in zero_indexed]
+        return(sorted(one_indexed)) # sorting just to look exact as required
+    else:
+        return(None)
+
+
+
+text = fasta_parser("/Users/PM/Dropbox/Genome_scale_algorithms/Genome_scale_algorithms/gsa-read-mapper-master/data/gorGor3-small-noN_tiny.fa")
+# text = text[' chr1']
+
+fastq_reads = fastq_parser("/Users/PM/Dropbox/Genome_scale_algorithms/Genome_scale_algorithms/gsa-read-mapper-master/data/sim-reads-exact-tiny.fq")
+
+
+# suffix_array = build_array_naive(text + '$')
+# O =  build_o_table(suffix_array, text + '$')
+# C = build_c_table(suffix_array, text + '$')
+
+
+# Reading the preprocessed files:
+
+
+for readname, seq in fastq_reads.items():
+    print readname
+# print search_bw(suffix_array, text, fastq_reads, O, C)

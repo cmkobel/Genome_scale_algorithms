@@ -38,9 +38,6 @@ def fastq_parser(filename):
     return (dict_fastq)
 
 
-test = fastq_parser('exact-samples.fq')
-
-
 def simulate_cigar(n, d):
     cigar = ['='] * n
     for _ in range(d):
@@ -84,8 +81,3 @@ def from_strings_to_cigar(cigar_string):
             i += 1
     return (cigar_output)
 
-
-test = simulate_cigar(10, 3)
-print test
-
-print from_strings_to_cigar(test)
