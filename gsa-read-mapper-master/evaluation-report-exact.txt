@@ -1,9 +1,9 @@
 mapper           time
-bwa              3.26
-bwa              0.04
-bwa              0.03
-bwa              0.03
-bwa              0.03
+bwa              0.00
+bwa              0.00
+bwa              0.00
+bwa              0.00
+bwa              0.00
 my_mapper        0.00
 my_mapper        0.00
 my_mapper        0.00
