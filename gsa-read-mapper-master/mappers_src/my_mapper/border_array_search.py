@@ -35,5 +35,5 @@ def ba_search(pattern, sequence):
 
     return cnt
 
-edit_distance = sys.argv[1]
-ba_search(sys.argv[2], sys.argv[3])
+
+ba_search(sys.argv[1], sys.argv[2])

@@ -1,6 +1,6 @@
 mapper           time
+bwa              3.26
 bwa              0.04
-bwa              0.03
 bwa              0.03
 bwa              0.03
 bwa              0.03
