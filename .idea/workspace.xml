@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc0dfe88-d749-4c44-ad7d-54f906e9c1a1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/SamRow.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/parsers.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/search-bs-exact.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Project2/._perf analysis - suffix tree.R" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Project3/._Genome_Scale_algorithms_-_Project_3_-_Maria,_Mateo_and_Jacob.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Project4/._time_radix.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Project1/._StringMatch.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Project1/._project1.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Project2/._CallTime.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-exact.txt" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/evaluation-report-exact.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/border_array_search.py" afterPath="$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/border_array_search.py" />
     </list>
     <ignored path="Genome_scale_algorithms.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_approximative.sh">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
-              <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -65,8 +66,8 @@
       <file leaf-file-name="search-bs-exact.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/search-bs-exact.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+            <state relative-caret-position="702">
+              <caret line="65" column="54" lean-forward="false" selection-start-line="65" selection-start-column="54" selection-end-line="65" selection-end-column="54" />
               <folding>
                 <element signature="e#23#43#0" expanded="true" />
               </folding>
@@ -87,11 +88,9 @@
       <file leaf-file-name="search-bw-exact.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Project5/search-bw-exact.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="81" column="44" lean-forward="false" selection-start-line="81" selection-start-column="44" selection-end-line="81" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1058">
+              <caret line="114" column="0" lean-forward="true" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -688,7 +687,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524129080694</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="starting with our mapper">
+      <created>1524301227912</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1524301227912</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -713,16 +719,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2642344" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2642344" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.50193477" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32832617" sideWeight="0.49806523" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.49806523" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27526882" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27526882" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -772,7 +778,8 @@
     <MESSAGE value="I have put border array search in wrong folder" />
     <MESSAGE value="Mailund's read mapper evaluator" />
     <MESSAGE value="AFter running and compiling test and evaluation" />
-    <option name="LAST_COMMIT_MESSAGE" value="AFter running and compiling test and evaluation" />
+    <MESSAGE value="starting with our mapper" />
+    <option name="LAST_COMMIT_MESSAGE" value="starting with our mapper" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1024,7 +1031,7 @@
     <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/evaluation/test_mappers_approximative.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
-          <caret line="25" column="31" lean-forward="false" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1055,11 +1062,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Project5/search-bw-exact.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="81" column="44" lean-forward="false" selection-start-line="81" selection-start-column="44" selection-end-line="81" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1058">
+          <caret line="114" column="0" lean-forward="true" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1098,8 +1103,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gsa-read-mapper-master/mappers_src/my_mapper/search-bs-exact.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+        <state relative-caret-position="702">
+          <caret line="65" column="54" lean-forward="false" selection-start-line="65" selection-start-column="54" selection-end-line="65" selection-end-column="54" />
           <folding>
             <element signature="e#23#43#0" expanded="true" />
           </folding>
