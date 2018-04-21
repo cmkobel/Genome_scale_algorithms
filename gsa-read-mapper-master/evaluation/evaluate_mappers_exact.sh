@@ -8,7 +8,7 @@ export PATH=../mappers_src:$PATH
 
 # list of read-mappers to evaluate
 #mappers="bwa match_readmapper ac_readmapper bw_readmapper mybw_mapper_src"
-mappers="bwa bw_readmapper mybw_mapper border_map binary_search_map mybw_mapper"
+mappers="bwa bw_readmapper border_map binary_search_map"
 
 # file name for report
 report_file=../evaluation-report-exact.txt
@@ -21,7 +21,7 @@ d=0
 N=5
 
 # Reference genome
-reference=../data/gorGor3-small-noN_tiny.fa
+reference=../data/gorGor3-small-noN.fa
 
 # Reads
 reads=../data/sim-reads-d2-tiny.fq
