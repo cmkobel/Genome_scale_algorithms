@@ -21,7 +21,7 @@ d=1
 N=5
 
 # Reference genome
-reference=../data/gorGor3-small-noN.fa
+reference=../data/gorGor3-small-noN_tiny.fa
 
 # Reads
 reads=../data/sim-reads-d2-tiny.fq
