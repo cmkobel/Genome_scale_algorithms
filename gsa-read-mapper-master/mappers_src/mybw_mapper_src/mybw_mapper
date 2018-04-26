@@ -4,6 +4,31 @@ from SamRow import SamRow
 from parsers import fasta_parser,fastq_parser
 import deepdish as dd
 
+def produceCigar(text, pattern, indexes):
+    longCigar = ""
+    cigar = ""
+    cnt = 0
+    editDistance = 0
+    # Just append M,D or I depending on alignment
+    for c in pattern:
+        if c == text[indexes-1 + cnt]:
+            longCigar += "M"
+            cnt = cnt + 1
+        else:
+            editDistance = editDistance + 1
+            longCigar += "D" # TODO: D or I
+
+    # compress M,I,D
+    cnt = 0
+    for char in longCigar:
+        if char == longCigar[cnt]:
+            cnt = cnt + 1
+        else:
+            cigar = cigar + str(cnt) + char
+
+        if cnt == len(longCigar)-1: # check the last character
+            cigar = cigar + str(cnt+1) + char
+    return editDistance, cigar
 
 def search_bw(suffix_array, text, pat, O, C):
     m = len(pat)  # lenght of the pattern
@@ -45,9 +70,9 @@ C_table = dd.io.load('../evaluation/C_table.h5')
 suffix_array = dd.io.load('../evaluation/suffix_array.h5')
 
 # Reading data:
-nameOfFile = argv[0] #not used
-d_argument = argv[1] # not used
-d_argument_param = argv[2] # not used
+nameOfFile = argv[0] #not in exact
+d_argument = argv[1] # not in exact
+d_argument_param = argv[2] # not in exact
 dictFasta = fasta_parser(argv[3])
 dictFastq = fastq_parser(argv[4])
 
@@ -55,12 +80,23 @@ refName = dictFasta.keys()[0]
 text = dictFasta[refName]
 keys = dictFastq.keys()
 
-for key in keys:
-    matches = search_bw(suffix_array, text, dictFastq[key][0], O_table, C_table)
-    for match in matches:
-        print match
-        if match != []:
+if d_argument_param == 0:
+    for key in keys:
+        matches = search_bw(suffix_array, text, dictFastq[key][0], O_table, C_table)
+        for match in matches:
+            #print match
+            if match != []:
+                d, cigar = produceCigar(text, dictFastq[key][0], match)
+                samRow = SamRow(refName, key, match, cigar, dictFastq[key][0], dictFastq[key][1])
+                samRow.writeSamRow("mybw_mapper.sam")
+else:
+    for key in keys:
+        matches = search_bw(suffix_array, text, dictFastq[key][0], O_table, C_table)
+        for match in matches:
+            # print match
+            if match != []:
+                d, cigar = produceCigar(text, dictFastq[key][0], match)
 
-            # TODO: PRODUCE ACTUAL CIGAR!
-            samRow = SamRow(refName, key, match, str(len(dictFastq[key][0])) + "M", dictFastq[key][0], dictFastq[key][1])
-            samRow.writeSamRow("mybw_mapper.sam")
+                if d <= d_argument_param:
+                    samRow = SamRow(refName, key, match, cigar, dictFastq[key][0], dictFastq[key][1])
+                    samRow.writeSamRow("mybw_mapper.sam")

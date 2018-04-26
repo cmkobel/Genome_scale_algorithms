@@ -10,7 +10,7 @@ export PATH=../mappers_src:$PATH
 ref_mapper=bw_readmapper
 
 # list of read-mappers to evaluate
-mappers="border_map binary_search_map bwa mybw_mapper"
+mappers="border_map mybw_mapper binary_search_map"
 #mappers="binary_search_map"
 
 # file name for report
