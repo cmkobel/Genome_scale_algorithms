@@ -31,7 +31,7 @@ ordered_normalised <- normalised %>%
     group_by(mapper) %>%
     summarise(median_time = median(time))
 
-ggplot(normalised, aes(x = mapper, y = time)) +
+ggplot(time_results, aes(x = mapper, y = time)) +
     geom_hline(
         aes(yintercept = median_time),
         color = "lightgray", linetype="dashed",

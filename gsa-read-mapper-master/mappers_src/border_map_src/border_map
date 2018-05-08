@@ -27,7 +27,6 @@ def ba_search(pattern, sequence):
     ba = compute_border_array(pattern+"$"+sequence)
 
     cnt = 0
-    b = 0
     matches = []
     for i in range(0, len(ba)):
         if ba[i] == m:

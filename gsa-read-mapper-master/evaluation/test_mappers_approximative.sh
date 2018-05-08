@@ -10,7 +10,7 @@ export PATH=../mappers_src:$PATH
 ref_mapper=bw_readmapper
 
 # list of read-mappers to evaluate
-mappers="border_map mybw_mapper binary_search_map"
+mappers="mybw_mapper bwa"
 #mappers="binary_search_map"
 
 # file name for report
@@ -18,7 +18,7 @@ report_file=../test-report.txt
 log_file=../test.log
 
 # max edit distance to explore
-d=1
+d=2
 
 # Reference genome
 reference=../data/gorGor3-small-noN_tiny.fa
