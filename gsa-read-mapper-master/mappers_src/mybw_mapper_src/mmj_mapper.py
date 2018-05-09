@@ -2,6 +2,7 @@
 from sys import argv
 from SamRow import SamRow
 from parsers import fasta_parser, fastq_parser
+from functools import cmp_to_key
 import deepdish as dd
 
 def search_bw_exact_jcm(suffix_array, pattern, n, O_table, C_table):
@@ -262,7 +263,8 @@ def search_bw_d_queue(pattern, ref_len, Suffix_array, O_table, C_table, d):
     # Report
     return matches
 
-
+def sam_key(sam):
+    return int(sam.position)
 
 # Reading the preprocessed files:
 O_table = dd.io.load('../../evaluation/O_table.h5')
@@ -278,50 +280,57 @@ if DEBUG:
     dictFasta = fasta_parser("../../data/gorGor3-small-noN_tiny.fa")
     dictFastq = fastq_parser("../../data/sim-reads-d2-tiny.fq")
 
-    d_argument_param = 1
+    d_argument_param = 0
 
     refName = list(dictFasta.keys())[0]
     text = dictFasta[refName]
-    #text = "mississippi"
-    text_len = len(text)
 
+    #text = "mississippi"
     #dictFastq = { "a": "miss", "b": "ippi", "c" : "ass", "d" : "ss", "e" : "pps", "f" : "i", "g" : "s" }
     #dictFastq = {"a": ["sipp", "~~~~"]}
-    #print(dictFastq)
-
 
 else:
     # Commandline call, get arguments
-    nameOfFile = argv[0]                # not in exact
-    d_argument = argv[1]                # not in exact
-    d_argument_param = int(argv[2])     # not in exact
-    dictFasta = fasta_parser(argv[3])
-    dictFastq = fastq_parser(argv[4])
+    #
+    nameOfFile = argv[0]                # This files name
+    d_argument = argv[1]                # -d
+    d_argument_param = int(argv[2])     # int
+    dictFasta = fasta_parser(argv[3])   # filename of fasta
+    dictFastq = fastq_parser(argv[4])   # filename of fastq
 
     refName = list(dictFasta.keys())[0]
 
+#
+text_len = len(text)
+
 file_sam = "../../evaluation/mmj_mapper.sam"
 
+# Emptying file
 file_object = open(file_sam, "w+")
 file_object.write("")
+file_object.close()
 
 for key in dictFastq.keys():
+
     pattern = dictFastq[key][0]
-    #print("\nmatches : (" + str(len(pattern)) + ") " + pattern + " to (" + str(len(text)) + ") ")
+    snakes = dictFastq[key][1]
 
+    # Match
     matches = search_bw_d_queue(pattern, text_len, suffix_array, O_table, C_table, d_argument_param)
-    #print("found :" + str(len(matches)))
 
-
+    # Collect SAM entries from matches
+    sams = []
 
     for m_obj in matches:
-
-        sams = []
-
         for match_index in m_obj.matches:
-            samRow = SamRow(refName, key, match_index, m_obj.Get_Cigar(), dictFastq[key][0], dictFastq[key][1])
+
+            samRow = SamRow(refName, key, match_index, m_obj.Get_Cigar(), pattern, snakes)
             sams.append(samRow)
 
-        for sam in sams:
-            sam.writeSamRow(file_sam)
+    # Sort
+    sams.sort(key = sam_key)
+
+    # Write
+    for sam in sams:
+        sam.writeSamRow(file_sam)
 
