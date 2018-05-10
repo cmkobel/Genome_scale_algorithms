@@ -10,7 +10,7 @@ export PATH=../mappers_src:$PATH
 ref_mapper=bw_readmapper
 
 # list of read-mappers to evaluate
-mappers="mybw_mapper bwa"
+mappers="mateo_mapper"
 #mappers="binary_search_map"
 
 # file name for report

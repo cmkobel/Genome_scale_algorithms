@@ -17,7 +17,7 @@ class SamRow:
         self.position = position
 
     def returnSamRow(self):
-        return (str(self.readName) + "\t0\t" + str(self.refName).strip() + "\t" + str(self.position) + "\t0\t" + self.cigar + "\t*\t0\t0\t" + str(self.read) + "\t" + str(self.snakes))
+        return (str(self.readName) + "\t0\t" + str(self.refName) + "\t" + str(self.position) + "\t0\t" + self.cigar + " *\t0\t0\t" + str(self.read) + " " + str(self.snakes))
 
     def writeSamRow(self, fileName):
         file_object = open(fileName, "a+")
