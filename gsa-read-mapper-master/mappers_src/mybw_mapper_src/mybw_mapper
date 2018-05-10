@@ -214,9 +214,9 @@ def approxMatch(fastq_read, O, C, d):
 
 
 # Reading the preprocessed files:
-O_table = dd.io.load('../../evaluation/O_table.h5')
-C_table = dd.io.load('../../evaluation/C_table.h5')
-suffix_array = dd.io.load('../../evaluation/suffix_array.h5')
+O_table = dd.io.load('../evaluation/O_table.h5')
+C_table = dd.io.load('../evaluation/C_table.h5')
+suffix_array = dd.io.load('../evaluation/suffix_array.h5')
 
 # Reading data:
 nameOfFile = argv[0]  # not in exact

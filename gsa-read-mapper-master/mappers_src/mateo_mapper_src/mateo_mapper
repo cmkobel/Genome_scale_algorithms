@@ -1,0 +1,94 @@
+#!/usr/bin/env python
+from sys import argv
+from SamRow import SamRow
+from parsers import fasta_parser, fastq_parser
+from Alignments import Alignment
+
+
+def make_cigar(pat, ref):
+    alignments = Alignment(gap_extend = 1, gap_open = 1, max_or_min="min")
+    alignments.read_score_matrix_from_text_file(file="config_matrix.txt", max_or_min="min")
+    cigar_list = []
+    alignments.align_2_sequences_linear(pat, ref)
+
+    # Get the cigars out of it:
+    mod = alignments.alignment1
+    ori = alignments.alignment2
+
+    for i in xrange(0, len(mod)):
+        if mod[i] == ori[i]:
+            cigar_list.append('M')
+        if mod[i] == '-':
+            cigar_list.append('I')
+        if ori[i] == '-':
+            cigar_list.append('D')
+        if mod[i] != ori[i]:
+            cigar_list.append('M')
+
+    return make_cigar_from_list(cigar_list)
+
+def make_cigar_from_list(count_char):
+    cigar_output = ''
+    count = 1
+    for i in range(len(count_char)):
+        if i == len(count_char) - 1: #last char case
+            cigar_output += str(count) + count_char[i]
+            return cigar_output
+        if count_char[i] == count_char[i + 1]:
+            count += 1
+        else:
+            cigar_output += str(count) + count_char[i]
+            count = 1
+
+    return (cigar_output)
+
+
+def naive_approx(p, t, max_distance):
+    occurrences = []
+    for i in range(0, len(t) - len(p) + 1): # for all alignments
+        nmm = 0
+        for j in range(0, len(p)):          # for all characters
+            if t[i+j] != p[j]:               # does it match?
+                nmm += 1                     # mismatch
+                if nmm > max_distance:
+                    break                    # exceeded maximum distance
+        if nmm <= max_distance:
+            # approximate match; return pair where first element is the
+            # offset of the match and second is the Hamming distance
+            occurrences.append(i+1)
+    return occurrences
+
+
+# Reading data:
+nameOfFile = argv[0]  # not in exact
+d_argument = argv[1]  # not in exact
+d_argument_param = int(argv[2])  # not in exact
+dictFasta = fasta_parser(argv[3])
+dictFastq = fastq_parser(argv[4])
+
+refName = dictFasta.keys()[0]
+text = dictFasta[refName]
+keys = dictFastq.keys()
+
+
+
+for key in keys:
+    positions = naive_approx(dictFastq[key][0], text, max_distance=d_argument_param)
+    if positions != []:
+        if len(positions) != 1:
+            for position in positions:
+                try:
+                    cigar = make_cigar(dictFastq[key][0], text[position:(position+len(dictFastq[key][0]))])
+                    samRow = SamRow(refName, key, position, cigar, dictFastq[key][0], dictFastq[key][1])
+                    print(samRow.returnSamRow())
+                except Exception as e: print(e)
+
+        else:
+            try:
+                cigar = make_cigar(dictFastq[key][0], text[positions[0]:(positions[0] + len(dictFastq[key][0]))])
+                samRow = SamRow(refName, key, positions[0], cigar, dictFastq[key][0], dictFastq[key][1])
+                print(samRow.returnSamRow())
+            except Exception as e: print(e)
+
+
+
