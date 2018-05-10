@@ -1,12 +1,20 @@
 #!/usr/bin/env python
 
+import time
 from os.path import basename
 import os.path
 from sys import argv
 from collections import OrderedDict
 import deepdish as dd
 from collections import defaultdict
+from functools import cmp_to_key
 
+import warnings
+
+# Ignore warnings ..
+warnings.filterwarnings("ignore")
+
+# Helper function for "suffix_array_ManberMyers" ... merge sort?
 def sort_bucket(s, bucket, order):
     d = defaultdict(list)
     for i in bucket:
@@ -20,44 +28,111 @@ def sort_bucket(s, bucket, order):
             result.append(v[0])
     return result
 
-
+# Create suffix array
 def suffix_array_ManberMyers(s):
     return sort_bucket(s, range(len(s)), 1)
 
+def build_sa_lec(S):
+
+    def comp(i, j):
+        while S[i] == S[j]:
+            i = i + 1
+            j = j + 1
+
+        return -1 if S[i] < S[j] else 1
+
+    return sorted( range(len(S)), key = cmp_to_key(comp))
+
+def build_sa_np(S):
+
+    def comp(i, j):
+        while S[i] == S[j]:
+            i = i + 1
+            j = j + 1
+
+        return S[i] < S[j]
+
+    sa = list()
+    sa.append(0)
+
+    for i in range(1, len(S)):
+
+        min_idx = 0
+        max_idx = len(sa)
+
+        while not max_idx == min_idx :
+
+            test_idx = ((max_idx - min_idx) // 2) + min_idx
+
+            if comp(i, sa[test_idx]):
+                # true,  i < test
+                max_idx = test_idx
+            else:
+                # false, i > test
+                min_idx = test_idx + 1
+
+        sa.insert( min_idx, i)
+
+        #if i % 100000 == 0:
+        #    print(i)
+
+    return sa
+
+## Choose SA algorithm
+
+#build_sa = build_sa_lec                    # lecture version, medium speed, high mem usage
+#build_sa = build_sa_np                     # slow, but less mem usage
+build_sa = suffix_array_ManberMyers        # fast, high mem usage
+
+#print( build_sa("mississippi$") )
+#quit(0)
+
+'''
+    struct suffix_array *sa = allocate_sa(string);
+    
+    char **suffixes = malloc(sa->length * sizeof(char *));
+    for (size_t i = 0; i < sa->length; ++i)
+        suffixes[i] = (char *)string + i;
+    
+    qsort(suffixes, sa->length, sizeof(char *), construction_cmpfunc);
+    
+    for (size_t i = 0; i < sa->length; i++)
+        sa->array[i] = (size_t)(suffixes[i] - string);
+'''
+
+
+# Read fasta file
 def fasta_parser(filename):
-    file = open(filename, 'r').read()
-    file_separe = file.split('>')
 
-    file_separe.remove('')
+    dict_lines = {}
+    entry_name = None
+    list_lines = None
 
-    dict_fasta = OrderedDict()
-    for entry in file_separe:
-        seq = entry.splitlines()  # list
+    with open(filename) as infile:
 
-        header = seq[0]
-        sequences = ''.join(seq[1::])
+        i = 0
+        for line in infile:
+            #print(str(i) + ": " + line)
+            line = line.strip()
 
-        dict_fasta[header] = sequences
+            if ">" in line:
+                line_parts = line.split('>')
+                entry_name = "".join(line_parts).strip()
 
-    return (dict_fasta)
+                list_lines = list()
+                dict_lines[entry_name] = list_lines
 
-def fastq_parser(filename):
-    file = open(filename, 'r').read()
-    file_separe = file.split('@')
+            else:
+                list_lines.append( line )
 
-    file_separe.remove('')
+            i = i + 1
 
-    dict_fastq = OrderedDict()
-    for entry in file_separe:
-        seq = entry.splitlines()
-        header = seq[0]
-        sequence = seq[1]
-        quality = seq[3]
-        dict_fastq[header] = sequence
+    for k in dict_lines.keys():
+        dict_lines[k] = "".join(dict_lines[k])
 
-    return (dict_fastq)
+    return dict_lines
 
-
+# Build c table
 def build_c_table(suffix_array, text):
     '''
     Number of symbols in x[0...n-2] that are lexicographic smaller than a, i.e. how many suffixes of x (excluding $)
@@ -74,7 +149,7 @@ def build_c_table(suffix_array, text):
 
     return (c_dict)
 
-
+# Build o talbe
 def build_o_table(suffix_array, text):
     '''
     Number of times a occurs immediately to the left of one the i+1 smallest suffixes
@@ -103,36 +178,39 @@ def build_o_table(suffix_array, text):
 
     return (O_dict)
 
+### MAIN
 
-
-
-
-
-
-#ref = "mississippi$"
-#ref = "GTGACAGAGCGACGCTCCATCTCGAAAACAAAACAAAACAAAAAAACCCCACCTGAAGGTTTCCAGTTCTGCCAGCAGTCTCCCACCCAACCCCCAGAAGCAGACATTCCATTGCTGTGGGCCATGGACAGGCAGAAGGAAGCACCTCCTCATGGCAGAGGCCTACCCAGGAGAAACCCAAGGGAAGGCACTGCTGGGCTGGCCCCTCTCTGCCAAGGCCATATTCTTTTTTTTTTTTTTTGAGGCCAGTTTCACTCTGTCTCCCAGACTGGAGTGCAGGGGCACAATCTCGGCTCACTTCGACCTCTGCCTCCCCAGTTCAAGTGATTCTCCTGCCTCAGTCTCCTGAGTAGCTGGGATTACAGGAGTGTAGCATGCCTAGCTAATTTTTGTATTTCTAGTAGAGATGGGGTTTTGCCATGTTGCCCAGGCTGGACTCGAACTCCTTGCCTCAAGTAGTCCACCTGTCTCAGCCCCGCAAAGTGCTGGGATTACAGGAGTGAGCCACTGCACCCAGCATTTGCCAAGACCTTTGATGGCAGGCTTTTTCCAGGTGATCAGTCCTTGTCTGGTCTGGCTCTGCCCCACTCTCCTTCTCACCTAGTTGGAATCCCTAGCTACTTTTCAGTAGAGGAGAGTGTGTACCCCAATCCCAGCTTGGTTCAGATCTGCATTTAACTCATGGAACCTGGCTGCTCCCCAGGTCCTGAAGAAAAAAAG$"
-#sa = suffix_array_ManberMyers(ref)
-#print(sa)
+t0 = time.time()
 
 # Call from PyCharm or command line ?
 if( len(argv) > 1):
     file_fasta = argv[1]
 else:
     file_fasta = "../../data/gorGor3-small-noN_tiny.fa"
+    #file_fasta = "../../data/gorGor3-small-noN.fa"
+
+file_basename = basename( file_fasta )
+path_base = os.path.dirname( file_fasta )
+
+# Load fasta file
+print("Loading " + file_basename + "")
 
 dictFasta = fasta_parser(file_fasta)
 
 refName = list(dictFasta.keys())[0]
 text = dictFasta[refName]
-file_basename = os.path.splitext(basename( file_fasta ) )[0]
-path_base = os.path.dirname( file_fasta )
 
 # Constructing tables
-SA = suffix_array_ManberMyers(text + '$')
+print("Creating Suffix array - size: " + str(len(text)) + "")
+#SA = suffix_array_ManberMyers(text + '$')
+SA = build_sa(text + '$')
+print("Creating C table")
 C = build_c_table(SA, text + '$')
+print("Creating O table")
 O = build_o_table(SA, text + '$')
 
 # Saving the tables
+print("Writing structures")
 file_sa = path_base + "/" + file_basename + ".sa.h5"  #"../../evaluation/suffix_array.h5"
 file_o = path_base + "/" + file_basename + ".O.h5"  #"../../evaluation/O_table.h5"
 file_c = path_base + "/" + file_basename + ".C.h5"  #"../../evaluation/C_table.h5"
@@ -140,3 +218,5 @@ file_c = path_base + "/" + file_basename + ".C.h5"  #"../../evaluation/C_table.h
 dd.io.save(file_sa, SA, compression='blosc')
 dd.io.save(file_o, O, compression='blosc')
 dd.io.save(file_c, C, compression='blosc')
+
+print("Done " + "{0:.2f}".format(time.time() - t0) + "s")

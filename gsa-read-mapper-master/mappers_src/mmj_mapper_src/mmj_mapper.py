@@ -4,10 +4,42 @@ from os.path import basename
 import os.path
 from sys import argv
 from SamRow import SamRow
-from parsers import fasta_parser, fastq_parser
-from functools import cmp_to_key
+from parsers import fastq_parser
 import deepdish as dd
+import time
 
+# Read fasta file
+def fasta_parser(filename):
+
+    dict_lines = {}
+    entry_name = None
+    list_lines = None
+
+    with open(filename) as infile:
+
+        i = 0
+        for line in infile:
+            #print(str(i) + ": " + line)
+            line = line.strip()
+
+            if ">" in line:
+                line_parts = line.split('>')
+                entry_name = "".join(line_parts).strip()
+
+                list_lines = list()
+                dict_lines[entry_name] = list_lines
+
+            else:
+                list_lines.append( line )
+
+            i = i + 1
+
+    for k in dict_lines.keys():
+        dict_lines[k] = "".join(dict_lines[k])
+
+    return dict_lines
+
+# Old exact algorithm
 def search_bw_exact_jcm(suffix_array, pattern, n, O_table, C_table):
     m = len(pattern)  # lenght of the pattern
     pattern_idx = m - 1  # start search as the end of pattern
@@ -96,6 +128,7 @@ class SearchEntry:
 
         return to_str
 
+# Actual search Burrow-Wheeler implementation - with d-edit cloud
 def search_bw_d_queue(pattern, ref_len, Suffix_array, O_table, C_table, d):
     m = len(pattern)     # lenght of the pattern
     pattern_idx = m - 1  # start search as the end of pattern
@@ -271,6 +304,8 @@ def sam_key(sam):
     return int(sam.position)
 
 
+### MAIN
+t0 = time.time()
 
 # Running from inside PyCharm?
 DEBUG = not len(argv) > 1 # test if more than filename is in argv
@@ -280,7 +315,7 @@ if DEBUG:
     #
     file_fasta = "../../data/gorGor3-small-noN_tiny.fa"
     file_fastq = "../../data/sim-reads-d2-tiny.fq"
-    d_argument_param = 2
+    d_argument_param = 1
 
     #text = "mississippi"
     #dictFastq = { "a": "miss", "b": "ippi", "c" : "ass", "d" : "ss", "e" : "pps", "f" : "i", "g" : "s" }
@@ -302,7 +337,7 @@ dictFastq = fastq_parser(file_fastq)
 refName = list(dictFasta.keys())[0]
 text = dictFasta[refName]
 text_len = len(text)
-file_basename = os.path.splitext( basename( file_fasta ) )[0]
+file_basename = basename( file_fasta )
 path_base = os.path.dirname( file_fasta )
 
 # Reading the preprocessed files:
@@ -346,3 +381,4 @@ for key in dictFastq.keys():
     for sam in sams:
         sam.writeSamRow(file_sam)
 
+print("Done " + "{0:.2f}".format(time.time() - t0) + "s")
