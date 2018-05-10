@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+
+from os.path import basename
+import os.path
 from sys import argv
 from SamRow import SamRow
 from parsers import fasta_parser, fastq_parser
@@ -263,27 +266,21 @@ def search_bw_d_queue(pattern, ref_len, Suffix_array, O_table, C_table, d):
     # Report
     return matches
 
+# Sort function for SAM entries
 def sam_key(sam):
     return int(sam.position)
 
-# Reading the preprocessed files:
-O_table = dd.io.load('../../evaluation/O_table.h5')
-C_table = dd.io.load('../../evaluation/C_table.h5')
-suffix_array = dd.io.load('../../evaluation/suffix_array.h5')
+
 
 # Running from inside PyCharm?
 DEBUG = not len(argv) > 1 # test if more than filename is in argv
 
 if DEBUG:
     # Inside PyCharm ... do whatever
-
-    dictFasta = fasta_parser("../../data/gorGor3-small-noN_tiny.fa")
-    dictFastq = fastq_parser("../../data/sim-reads-d2-tiny.fq")
-
+    #
+    file_fasta = "../../data/gorGor3-small-noN_tiny.fa"
+    file_fastq = "../../data/sim-reads-d2-tiny.fq"
     d_argument_param = 2
-
-    refName = list(dictFasta.keys())[0]
-    text = dictFasta[refName]
 
     #text = "mississippi"
     #dictFastq = { "a": "miss", "b": "ippi", "c" : "ass", "d" : "ss", "e" : "pps", "f" : "i", "g" : "s" }
@@ -292,30 +289,45 @@ if DEBUG:
 else:
     # Commandline call, get arguments
     #
-    nameOfFile = argv[0]                # This files name
+    nameOfFile = argv[0]                # This file's name
     d_argument = argv[1]                # -d
     d_argument_param = int(argv[2])     # int
-    dictFasta = fasta_parser(argv[3])   # filename of fasta
-    dictFastq = fastq_parser(argv[4])   # filename of fastq
+    file_fasta = argv[3]                # filename of fasta
+    file_fastq = argv[4]                # filename of fastq
 
-    refName = list(dictFasta.keys())[0]
+# Load fastq and fasta
+dictFasta = fasta_parser(file_fasta)
+dictFastq = fastq_parser(file_fastq)
 
-#
+refName = list(dictFasta.keys())[0]
+text = dictFasta[refName]
 text_len = len(text)
+file_basename = os.path.splitext( basename( file_fasta ) )[0]
+path_base = os.path.dirname( file_fasta )
 
-file_sam = "../../evaluation/mmj_mapper.sam"
+# Reading the preprocessed files:
+file_sa = path_base + "/" + file_basename + ".sa.h5"  #"../../evaluation/suffix_array.h5"
+file_o = path_base + "/" + file_basename + ".O.h5"  #"../../evaluation/O_table.h5"
+file_c = path_base + "/" + file_basename + ".C.h5"  #"../../evaluation/C_table.h5"
 
-# Emptying file
+O_table = dd.io.load(file_o)
+C_table = dd.io.load(file_c)
+suffix_array = dd.io.load(file_sa)
+
+# Emptying SAM file
+file_sam = "mmj_mapper.sam" #"../../evaluation/mmj_mapper.sam"
+
 file_object = open(file_sam, "w+")
 file_object.write("")
 file_object.close()
 
+# Search each fastq entry
 for key in dictFastq.keys():
 
     pattern = dictFastq[key][0]
     snakes = dictFastq[key][1]
 
-    # Match
+    # Match entry
     matches = search_bw_d_queue(pattern, text_len, suffix_array, O_table, C_table, d_argument_param)
 
     # Collect SAM entries from matches
