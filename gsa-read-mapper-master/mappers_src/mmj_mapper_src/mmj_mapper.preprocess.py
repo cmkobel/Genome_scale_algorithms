@@ -83,23 +83,7 @@ def build_sa_np(S):
 #build_sa = build_sa_lec                    # lecture version, medium speed, high mem usage
 #build_sa = build_sa_np                     # slow, but less mem usage
 build_sa = suffix_array_ManberMyers        # fast, high mem usage
-
 #print( build_sa("mississippi$") )
-#quit(0)
-
-'''
-    struct suffix_array *sa = allocate_sa(string);
-    
-    char **suffixes = malloc(sa->length * sizeof(char *));
-    for (size_t i = 0; i < sa->length; ++i)
-        suffixes[i] = (char *)string + i;
-    
-    qsort(suffixes, sa->length, sizeof(char *), construction_cmpfunc);
-    
-    for (size_t i = 0; i < sa->length; i++)
-        sa->array[i] = (size_t)(suffixes[i] - string);
-'''
-
 
 # Read fasta file
 def fasta_parser(filename):
