@@ -1,0 +1,263 @@
+#!/usr/bin/env python
+from sys import argv
+from SamRow import SamRow
+from parsers import fasta_parser, fastq_parser
+import deepdish as dd
+from Alignments import Alignment
+
+def search_bw_inexact(suffix_array, text, pat, O, C):
+    m = len(pat)  # lenght of the pattern
+    n = len(text + '$')  # length of the text
+
+    l = 0
+    r = n - 1
+    i = m - 1
+
+    while (i >= 0 and l <= r):
+
+        c = pat[i]
+
+        if l - 1 < 0:  # dealing with negative indexes
+            try:
+                l = C[c] + 1 # here trying to deal with letters that are not present in the text
+            except:
+                return(None)
+        else:
+            l = C[c] + O[c][l - 1] + 1
+
+        r = C[c] + O[c][r]
+
+        i = i - 1
+
+    if i < 0 and l <= r:
+        zero_indexed = suffix_array[l:r + 1]
+        one_indexed = [x + 1 for x in zero_indexed]
+        return((sorted(one_indexed), pat)) # sorting just to look exact as required
+    return(None)
+
+def make_cigar_from_list(count_char):
+    cigar_output = ''
+    count = 1
+    count_char.append('$')
+    for i in range(len(count_char) - 1):
+        if count_char[i] == count_char[i + 1]:
+            count += 1
+            i += 1
+        else:
+            cigar_output += str(count) + count_char[i]
+            count = 1
+            i += 1
+    return (cigar_output)
+
+
+def naive_inexact(read, reference, edit_Distance=1):
+    match = []
+    cigars = []
+    for i in xrange(0, len(reference) - len(read) + 1):  # for	all	alignments
+        cigar = list()
+        d = 0
+        for j in xrange(0, len(read)):  # for	all	characters
+            if reference[i + j] != read[j]:  # does	it	match?
+                cigar.append('X')
+                d += 1  # mismatch
+                if d > edit_Distance:
+                    break  # exceeded	maximum	distance
+            else:
+                cigar.append('M')
+        if d <= edit_Distance:
+            #	approximate	match;	return	pair	where	first	element	is	the
+            #	offset	of	the	match	and	second	is the	edit	distance
+            match.append((i, d, make_cigar_from_list(cigar)))
+    return match
+
+
+def produceCigar(text, pattern, indexes):
+    longCigar = ""
+    cigar = ""
+    cnt = 0
+    editDistance = 0
+    # Just append M,D or I depending on alignment
+    for c in pattern:
+        if c == text[indexes - 1 + cnt]:
+            longCigar += "M"
+            cnt = cnt + 1
+        else:
+            editDistance = editDistance + 1
+            longCigar += "D"  # TODO: D or I
+
+    # compress M,I,D
+    cnt = 0
+    for char in longCigar:
+        if char == longCigar[cnt]:
+            cnt = cnt + 1
+        else:
+            cigar = cigar + str(cnt) + char
+
+        if cnt == len(longCigar) - 1:  # check the last character
+            cigar = cigar + str(cnt + 1) + char
+    return editDistance, cigar
+
+
+def search_bw(suffix_array, text, pat, O, C, d):
+    m = len(pat)  # lenght of the pattern
+    n = len(text + '$')  # length of the text
+
+    l = 0
+    r = n - 1
+    i = m - 1
+
+    while (i >= 0 and l <= r and d > 0):
+
+        c = pat[i]
+
+        if l - 1 < 0:  # dealing with negative indexes
+            try:
+                l = C[c] + 1  # here trying to deal with letters that are not present in the text
+            except:
+                return (None)
+        else:
+            l = C[c] + O[c][l - 1] + 1
+
+        r = C[c] + O[c][r]
+
+        i = i - 1
+
+    if i < 0 and l <= r:
+        zero_indexed = suffix_array[l:r + 1]
+        one_indexed = [x + 1 for x in zero_indexed]
+        return (sorted(one_indexed))  # sorting just to look exact as required
+    else:
+        zero_indexed = suffix_array[l:r + 1]
+        return (sorted(zero_indexed))
+
+
+def produce_alignment_and_cigar(modified_string, original_string, cigar_list=[]):
+    "Take the inexact reads align it to the original one and output a cigar score"
+
+    alignments = Alignment(gap_extend=5, gap_open=5, max_or_min="min")
+    alignments.read_score_matrix_from_text_file(file="config_matrix.txt", max_or_min="min")
+
+    alignments.align_2_sequences_linear(modified_string, original_string)
+
+    # Get the cigars out of it:
+    mod = alignments.alignment1
+    ori = alignments.alignment2
+
+    for i in xrange(0, len(mod)):
+        if mod[i] == ori[i]:
+            cigar_list.append('M')
+        if mod[i] == '-':
+            cigar_list.append('I')
+        if ori[i] == '-':
+            cigar_list.append('D')
+        if mod[i] != ori[i]:
+            cigar_list.append('M')
+
+    # print cigar_list
+
+    test = make_cigar_from_list(cigar_list)
+    return (test)
+
+
+def edits1(word):
+    "All edits that are one edit away from `word`."
+    letters = 'ACTG'
+    splits = [(word[:i], word[i:]) for i in range(len(word) + 1)]
+    deletes = [L + R[1:] for L, R in splits if R]
+    # transposes = [L + R[1] + R[0] + R[2:] for L, R in splits if len(R)>1]
+    replaces = [L + c + R[1:] for L, R in splits if R for c in letters]
+    inserts = [L + c + R for L, R in splits for c in letters]
+
+    return set(deletes + replaces + inserts)
+
+
+def make_cigar_from_list(count_char):
+    cigar_output = ''
+    count = 1
+    count_char.append('$')
+    for i in range(len(count_char) - 1):
+        if count_char[i] == count_char[i + 1]:
+            count += 1
+            i += 1
+        else:
+            cigar_output += str(count) + count_char[i]
+            count = 1
+            i += 1
+    return (cigar_output)
+
+def edits2(word):
+    "All edits that are two edits away from `word`."
+    test = [e2 for e1 in edits1(word) for e2 in edits1(e1)]
+    return set(test)
+
+
+def approxMatch(fastq_read, O, C, d):
+    dict_of_matches = {}
+    # Find all the possible edit space of a given read:
+    edited_strings1 = edits1(fastq_read)
+    edited_strings2 = edits2(fastq_read)
+
+    edit_space = edited_strings1 | edited_strings2
+
+    matches = []
+
+    # Claculate exact match for that given space
+    for i in edit_space:
+        matches.append(search_bw_inexact(suffix_array, text, i, O, C))
+
+    # Store the read and the matches (sometimes one read has more than one match, so the list
+    # will have more than one position, otherwise will be a list with just one matching position)
+    dict_of_matches[key] = matches
+    return dict_of_matches
+
+
+
+
+# Reading the preprocessed files:
+O_table = dd.io.load('../evaluation/O_table.h5')
+C_table = dd.io.load('../evaluation/C_table.h5')
+suffix_array = dd.io.load('../evaluation/suffix_array.h5')
+
+# Reading data:
+nameOfFile = argv[0]  # not in exact
+d_argument = argv[1]  # not in exact
+d_argument_param = int(argv[2])  # not in exact
+dictFasta = fasta_parser(argv[3])
+dictFastq = fastq_parser(argv[4])
+
+refName = dictFasta.keys()[0]
+text = dictFasta[refName]
+keys = dictFastq.keys()
+
+if d_argument_param == 0:
+    for key in keys:
+        matches = search_bw(suffix_array, text, dictFastq[key][0], O_table, C_table, d_argument_param)
+        for match in matches:
+            if match != []:
+                d, cigar = produceCigar(text, dictFastq[key][0], match)
+                samRow = SamRow(refName, key, match, cigar, dictFastq[key][0], dictFastq[key][1])
+                samRow.writeSamRow("mybw_mapper.sam")
+else:
+    for key in keys:
+        dict_of_matches = approxMatch(dictFastq[key][0], O_table, C_table, d_argument_param)
+        for read, matches in dict_of_matches.items():
+            for match in matches:
+                if match != None:
+                    if len(match[0]) > 1:  # If the match happens in more than one position
+                        for i in match[0]:
+                            test = produce_alignment_and_cigar(read, dictFastq[key][0], cigar_list=[])
+                            print test
+                            samRow = SamRow(refName, key, i,
+                                            test,
+                                            dictFastq[key][0],
+                                            dictFastq[key][1])
+
+                            samRow.writeSamRow("mybw_mapper.sam")
+                    else:  # match happens just once
+                        test = produce_alignment_and_cigar(read, dictFastq[key][0], cigar_list=[])
+                        print test
+                        samRow = SamRow(refName, key, match[0][0], test,
+                                        dictFastq[key][0],
+                                        dictFastq[key][1])
+
+                        samRow.writeSamRow("mybw_mapper.sam")
